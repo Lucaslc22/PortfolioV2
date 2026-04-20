@@ -1,124 +1,164 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nostalgie PS2 — Lucas Le Calvez</title>
-    <!-- Preconnect & Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet" />
-    <!-- Local CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/project.css" />
 </head>
+<body class="project-page">
 
-<body>
-    <!-- Top Nav -->
-    <header class="site-header project-header" data-reveal="3d-up">
-        <div class="container nav">
+    <header class="project-nav" id="project-nav">
+        <div class="pnav-inner">
             <a class="brand" href="../index.html" aria-label="Retour à l'accueil">
                 <img src="../img/Logo-bonneResolution.png" alt="Lucas Le Calvez" class="header-logo" />
             </a>
-            <nav class="nav-links">
-                <a href="../index.html#projets" class="back-link">Retour aux projets <span>&larr;</span></a>
-            </nav>
+            <a href="../index.html#projets" class="back-link">← Tous les projets</a>
         </div>
     </header>
 
-    <main id="top">
-        <!-- Project Hero -->
-        <section class="project-hero">
-            <div class="container project-hero-wrap">
-                <div class="hero-tag" data-reveal="3d-up">PROJET 3D</div>
-                <h1 class="hero-title" data-reveal="3d-up" data-delay="1">
-                    NOSTALGIE PS2
-                </h1>
+    <main>
+
+        <section class="project-fullscreen-hero">
+            <div class="pfh-bg" id="pfh-bg">
+                <img src="../img/PS2.png" alt="Nostalgie PS2" id="pfh-img" />
+                <div class="pfh-overlay"></div>
             </div>
-            
-            <div class="project-cover" data-reveal="3d-up" data-delay="2">
-                <!-- Using an absolute width/height setup in CSS for perfect image scaling -->
-                <img src="../img/PS2.png" alt="Rendu final Nostalgie PS2" loading="lazy" />
+            <div class="pfh-content">
+                <span class="pfh-tag">Hard Surface 3D · Blender</span>
+                <h1 class="pfh-title">NOSTALGIE<br>PS2</h1>
+                <span class="pfh-scroll-hint">Scroll pour explorer ↓</span>
             </div>
         </section>
 
-        <!-- Project Overview & Meta -->
-        <section class="section project-overview">
+        <section class="project-punchline">
             <div class="container">
-                <div class="overview-grid">
-                    <!-- Left: Description -->
-                    <div class="overview-text" data-reveal="3d-up">
-                        <h2>Le Concept</h2>
-                        <p>
-                            Création d'un environnement glaciaire hyper-réaliste. Ce projet d'exploration a consisté à modéliser un grand espace ouvert, en travaillant minutieusement l'éclairage volumétrique, les shaders de glace et l'atmosphère pour obtenir un rendu photoréaliste et cinématographique. 
-                        </p>
-                    </div>
+                <p class="punchline-text" data-reveal="3d-up">La <em>PlayStation 2</em>,<br>polygone par polygone.</p>
+            </div>
+        </section>
 
-                    <!-- Right: Specs -->
-                    <div class="overview-meta" data-reveal="3d-up" data-delay="1">
-                        <div class="meta-item">
-                            <span class="meta-label">Rôle</span>
-                            <span class="meta-value">Direction 3D / Lighting</span>
-                        </div>
-                        <div class="meta-item">
-                            <span class="meta-label">Année</span>
-                            <span class="meta-value">2026</span>
-                        </div>
-                        <div class="meta-item">
-                            <span class="meta-label">Outils</span>
-                            <div class="meta-tools">
-                                <span class="tool-pill">Blender</span>
-                                <span class="tool-pill">Photoshop</span>
-                            </div>
-                        </div>
+        <section class="project-specs" data-reveal="3d-up">
+            <div class="container">
+                <div class="specs-band">
+                    <div class="spec-item">
+                        <span class="spec-label">Rôle</span>
+                        <span class="spec-value">Hard Surface · Modélisation</span>
+                    </div>
+                    <div class="spec-divider">|</div>
+                    <div class="spec-item">
+                        <span class="spec-label">Durée</span>
+                        <span class="spec-value">2 Semaines</span>
+                    </div>
+                    <div class="spec-divider">|</div>
+                    <div class="spec-item">
+                        <span class="spec-label">Outils</span>
+                        <span class="spec-value">Blender</span>
+                    </div>
+                    <div class="spec-divider">|</div>
+                    <div class="spec-item">
+                        <span class="spec-label">Année</span>
+                        <span class="spec-value">2025</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Project Gallery (Behind the scenes) -->
-        <section class="section project-gallery">
+        <section class="project-chapter">
             <div class="container">
-                <div class="gallery-grid">
-                    <!-- Text/Image Block -->
-                    <div class="gallery-item split" data-reveal="3d-up">
-                        <div class="gallery-text">
-                            <h3>L'Éclairage</h3>
-                            <p>L'utilisation d'un système HDRI couplé à des lumières directionnelles permet de simuler un soleil polaire rasant, renforçant les ombres dures sur les crêtes de glace et les jeux de sub-surface scattering.</p>
-                        </div>
-                        <div class="gallery-img">
-                            <img src="../img/PS2.png" alt="Viewport Preview" loading="lazy" />
-                        </div>
+                <div class="chapter-intro" data-reveal="3d-up">
+                    <span class="chapter-number">01</span>
+                    <h2 class="chapter-title">Le Concept</h2>
+                    <p class="chapter-text">Reproduire fidèlement la console PlayStation 2 en 3D — un exercice de <em>hard surface modeling</em> qui demande précision, patience et maîtrise des formes géométriques complexes.</p>
+                </div>
+            </div>
+            <div class="chapter-image chapter-image--full" data-reveal="3d-up">
+                <img src="../img/PS2.png" alt="Le Concept" />
+                <span class="chapter-image-caption">Vue d'ensemble · PlayStation 2 en 3D</span>
+            </div>
+        </section>
+
+        <section class="project-chapter project-chapter--reversed">
+            <div class="container">
+                <div class="chapter-intro" data-reveal="3d-up">
+                    <span class="chapter-number">02</span>
+                    <h2 class="chapter-title">L'Approche Technique</h2>
+                    <p class="chapter-text">Chaque bouton, chaque port, chaque angle a été travaillé pour correspondre au modèle original. L'éclairage met en valeur le <em>design iconique</em> de la console avec des reflets maîtrisés.</p>
+                </div>
+            </div>
+            <div class="chapter-image chapter-image--full" data-reveal="3d-up">
+                <img src="../img/PS2.png" alt="L'Approche Technique" />
+                <span class="chapter-image-caption">Détail modélisation · Hard surface</span>
+            </div>
+        </section>
+
+        <section class="project-chapter">
+            <div class="container">
+                <div class="chapter-intro" data-reveal="3d-up">
+                    <span class="chapter-number">03</span>
+                    <h2 class="chapter-title">Le Résultat</h2>
+                    <p class="chapter-text">Un rendu fidèle et soigné témoignant d'une maîtrise croissante du hard surface modeling dans Blender — un hommage technique à un <em>objet de design iconique</em>.</p>
+                </div>
+            </div>
+            <div class="chapter-image chapter-image--full" data-reveal="3d-up">
+                <img src="../img/PS2.png" alt="Le Résultat" />
+                <span class="chapter-image-caption">Rendu Final · PlayStation 2 fidèle</span>
+            </div>
+        </section>
+
+        <section class="project-stats" data-reveal="3d-up">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-block">
+                        <span class="stat-value" data-count="2" data-suffix=" sem.">2 sem.</span>
+                        <span class="stat-label">De travail</span>
+                    </div>
+                    <div class="stat-block">
+                        <span class="stat-value" data-count="1" data-suffix=" console">1 console</span>
+                        <span class="stat-label">Recréée</span>
+                    </div>
+                    <div class="stat-block">
+                        <span class="stat-value" data-count="100" data-suffix="%">100%</span>
+                        <span class="stat-label">Hard surface</span>
+                    </div>
+                    <div class="stat-block">
+                        <span class="stat-value" data-count="1" data-suffix=" icône">1 icône</span>
+                        <span class="stat-label">Rendue hommage</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Next Project Footer -->
-        <section class="next-project-section" data-reveal="3d-up">
-            <div class="container">
-                <a href="ocean-arctique.html" class="next-project-link">
-                    <span class="next-label">Prochain Projet</span>
-                    <h2 class="next-title">Océan Arctique <span class="arrow">➔</span></h2>
-                </a>
+        <!-- NEXT PROJECT VISUAL (Plein écran) -->
+        <section class="next-project-visual">
+            <div class="npv-bg">
+                <img src="../img/glacierVF.jpg" alt="Océan Arctique" />
+                <div class="npv-overlay"></div>
+            </div>
+            <div class="npv-content">
+                <span class="npv-label">Prochain Projet</span>
+                <a href="ocean-arctique.html" class="npv-title">Océan Arctique <span class="npv-arrow">→</span></a>
             </div>
         </section>
+
+        <!-- PREV / NEXT PAGINATION BAR -->
+        <nav class="project-pagination">
+            <a href="profondeurs.html" class="pagination-prev">
+                <span class="pagination-dir">← Précédent</span>
+                <span class="pagination-name">Profondeurs</span>
+            </a>
+            <a href="ocean-arctique.html" class="pagination-next">
+                <span class="pagination-dir">Suivant →</span>
+                <span class="pagination-name">Océan Arctique</span>
+            </a>
+        </nav>
+
     </main>
 
-    <!-- Project Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-bottom">
-                <div class="footer-copyright">
-                    <img src="../img/Logo-bonneResolution.png" alt="Lucas Le Calvez" class="footer-logo" />
-                    <span>© 2026 — Tous droits réservés.</span>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Local JS -->
     <script src="../js/script.js"></script>
+    <script src="../js/project.js"></script>
 </body>
 </html>

@@ -1,0 +1,510 @@
+/* =========================================
+   PROJECT PAGE — IMMERSIVE STORYTELLING CSS
+   ========================================= */
+
+/* Reset body for project page */
+.project-page {
+    background: var(--bg-cream);
+    color: var(--text-blue);
+}
+
+/* ---- Floating Project Nav ---- */
+.project-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 20px 0;
+    background: transparent;
+    transition: background 0.4s ease, backdrop-filter 0.4s ease, padding 0.4s ease;
+}
+
+.project-nav.is-scrolled {
+    background: rgba(246, 238, 224, 0.85);
+    backdrop-filter: blur(16px);
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.pnav-inner {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 4vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.project-nav .header-logo {
+    height: 32px;
+    width: auto;
+    filter: brightness(0) invert(1); /* Logo blanc sur le hero sombre */
+    transition: filter 0.4s ease;
+}
+
+.project-nav.is-scrolled .header-logo {
+    filter: none; /* Logo couleur sur fond crème */
+}
+
+.project-nav .back-link {
+    color: rgba(255,255,255,0.8);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.project-nav.is-scrolled .back-link {
+    color: var(--text-blue);
+}
+
+.project-nav .back-link:hover {
+    color: var(--accent-pink);
+}
+
+/* =========================================
+   1. HERO PLEIN ÉCRAN
+   ========================================= */
+.project-fullscreen-hero {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 8vh;
+}
+
+.pfh-bg {
+    position: absolute;
+    inset: 0;
+    will-change: transform;
+}
+
+.pfh-bg img {
+    width: 100%;
+    height: 120%; /* Plus grand que le conteneur pour le parallax */
+    object-fit: cover;
+    display: block;
+    transform-origin: center top;
+}
+
+.pfh-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.15) 0%,
+        rgba(0,0,0,0) 30%,
+        rgba(0,0,0,0.6) 80%,
+        rgba(0,0,0,0.85) 100%
+    );
+}
+
+.pfh-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 6vw;
+    width: 100%;
+}
+
+.pfh-tag {
+    display: inline-block;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--accent-yellow);
+    font-weight: 700;
+    margin-bottom: 24px;
+    animation: fadeInUp 0.8s 0.3s both;
+}
+
+.pfh-title {
+    font-size: clamp(4rem, 11vw, 14rem);
+    font-weight: 900;
+    line-height: 0.88;
+    letter-spacing: -0.05em;
+    color: #fff;
+    margin: 0 0 48px 0;
+    animation: fadeInUp 0.9s 0.5s both;
+}
+
+.pfh-scroll-hint {
+    display: block;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    animation: fadeInUp 0.9s 0.8s both;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================
+   2. PHRASE DE CHOC
+   ========================================= */
+.project-punchline {
+    padding: 12vh 0;
+    background: var(--bg-cream);
+}
+
+.punchline-text {
+    font-size: clamp(2rem, 4.5vw, 5rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    color: var(--text-blue);
+    max-width: 900px;
+}
+
+.punchline-text em {
+    font-style: italic;
+    color: var(--accent-pink);
+}
+
+/* =========================================
+   3. FICHE TECHNIQUE
+   ========================================= */
+.project-specs {
+    padding: 6vh 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: var(--bg-cream);
+}
+
+.specs-band {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 32px;
+}
+
+.spec-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.spec-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--accent-pink);
+    font-weight: 700;
+}
+
+.spec-value {
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-blue);
+    letter-spacing: 0.02em;
+}
+
+.spec-divider {
+    font-size: 2rem;
+    color: var(--border);
+    font-weight: 300;
+}
+
+/* =========================================
+   4. CHAPITRES STORYTELLING
+   ========================================= */
+.project-chapter {
+    padding: 12vh 0 0;
+    background: var(--bg-cream);
+}
+
+.chapter-intro {
+    max-width: 760px;
+    margin-bottom: 8vh;
+    padding: 0;
+}
+
+.chapter-number {
+    font-size: clamp(6rem, 12vw, 14rem);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.06em;
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--border);
+    display: block;
+    margin-bottom: -1rem;
+    user-select: none;
+}
+
+.project-chapter--reversed .chapter-number {
+    -webkit-text-stroke: 1.5px rgba(240, 76, 135, 0.2); /* Pink ghost */
+}
+
+.chapter-title {
+    font-size: clamp(2.5rem, 4vw, 4rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    margin: 0 0 32px 0;
+    color: var(--text-blue);
+}
+
+.chapter-text {
+    font-size: clamp(1.1rem, 1.5vw, 1.35rem);
+    line-height: 1.75;
+    color: var(--text-dim);
+    max-width: 620px;
+}
+
+.chapter-text em { color: var(--accent-pink); font-style: italic; }
+.chapter-text strong { color: var(--text-blue); font-weight: 600; }
+
+/* Image Full-Width */
+.chapter-image--full {
+    width: 100%;
+    position: relative;
+    margin-top: 6vh;
+}
+
+.chapter-image--full img {
+    width: 100%;
+    height: clamp(300px, 60vh, 700px);
+    object-fit: cover;
+    display: block;
+}
+
+.chapter-image-caption {
+    display: block;
+    padding: 16px 4vw;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-dim);
+    border-top: 1px solid var(--border);
+}
+
+/* =========================================
+   5. CHIFFRES CLÉS
+   ========================================= */
+.project-stats {
+    padding: 12vh 0;
+    background: var(--text-blue);
+    color: var(--bg-cream);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+}
+
+.stat-block {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 40px;
+    border-right: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+}
+
+.stat-block:last-child { border-right: none; }
+
+.stat-value {
+    font-size: clamp(2.5rem, 4vw, 5rem);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    color: var(--accent-yellow);
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(246, 238, 224, 0.5);
+    font-weight: 600;
+}
+
+/* =========================================
+   6. NEXT PROJECT VISUAL
+   ========================================= */
+.next-project-visual {
+    position: relative;
+    height: 70vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.npv-bg {
+    position: absolute;
+    inset: 0;
+    transition: transform 6s ease;
+}
+
+.next-project-visual:hover .npv-bg {
+    transform: scale(1.05);
+}
+
+.npv-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.npv-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(74, 111, 165, 0.75);
+}
+
+.npv-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.npv-label {
+    display: block;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--accent-yellow);
+    font-weight: 700;
+    margin-bottom: 24px;
+}
+
+.npv-title {
+    display: block;
+    font-size: clamp(2.5rem, 6vw, 8rem);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    color: #fff;
+    text-decoration: none;
+    line-height: 1;
+    transition: letter-spacing 0.4s ease;
+}
+
+.next-project-visual:hover .npv-title {
+    letter-spacing: -0.01em;
+}
+
+.npv-arrow {
+    display: inline-block;
+    color: var(--accent-yellow);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.next-project-visual:hover .npv-arrow {
+    transform: translateX(20px);
+}
+
+/* =========================================
+   PREV / NEXT PROJECT NAV BAR
+   ========================================= */
+.project-pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    border-top: 1px solid var(--border);
+    background: var(--bg-cream);
+    padding: 0;
+}
+
+.pagination-prev,
+.pagination-next {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 40px 6vw;
+    text-decoration: none;
+    flex: 1;
+    transition: background 0.3s ease;
+}
+
+.pagination-prev {
+    border-right: 1px solid var(--border);
+    text-align: left;
+}
+
+.pagination-next {
+    text-align: right;
+}
+
+.pagination-prev:hover,
+.pagination-next:hover {
+    background: rgba(74, 111, 165, 0.05);
+}
+
+.pagination-dir {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-weight: 700;
+    color: var(--accent-pink);
+}
+
+.pagination-name {
+    font-size: clamp(1.2rem, 2vw, 1.8rem);
+    font-weight: 800;
+    color: var(--text-blue);
+    letter-spacing: -0.02em;
+    transition: color 0.3s ease;
+}
+
+.pagination-prev:hover .pagination-name,
+.pagination-next:hover .pagination-name {
+    color: var(--accent-pink);
+}
+
+/* =========================================
+   VIDEO EMBED IN CHAPTERS
+   ========================================= */
+.chapter-video {
+    width: 100%;
+    position: relative;
+    margin-top: 6vh;
+    background: #0a0a0a; /* Fond noir cinématographique */
+}
+
+.chapter-video video {
+    width: 100%;
+    /* Respecte le ratio naturel de la vidéo (16:9 par défaut) */
+    aspect-ratio: 16 / 9;
+    max-height: 80vh;
+    object-fit: contain; /* Affiche la vidéo entière sans recadrage */
+    display: block;
+    margin: 0 auto;
+}
+
+.chapter-video .chapter-image-caption {
+    display: block;
+    padding: 16px 4vw;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-dim);
+    border-top: 1px solid var(--border);
+    background: var(--bg-cream);
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+@media (max-width: 900px) {
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .stat-block { border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .specs-band { flex-direction: column; gap: 24px; }
+    .spec-divider { display: none; }
+    .pfh-title { font-size: clamp(3rem, 14vw, 8rem); }
+}
+
+@media (max-width: 600px) {
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+    .chapter-number { font-size: 6rem; }
+}
