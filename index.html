@@ -4,1084 +4,318 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lucas Le Calvez — Portfolio</title>
+    <title>Lucas Le Calvez — Directeur Artistique, Audiovisuel & 3D</title>
     <meta name="description" content="Portfolio de Lucas Le Calvez — audiovisuel, 3D, montage et création visuelle." />
+    <!-- Preconnect & Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
         rel="stylesheet" />
-
-    <style>
-        :root {
-            --bg: #06070a;
-            --bg-soft: rgba(255, 255, 255, 0.04);
-            --panel: rgba(255, 255, 255, 0.06);
-            --panel-strong: rgba(255, 255, 255, 0.1);
-            --text: #f3f4f6;
-            --muted: rgba(243, 244, 246, 0.68);
-            --muted-soft: rgba(243, 244, 246, 0.45);
-            --line: rgba(255, 255, 255, 0.1);
-            --shadow: 0 25px 80px rgba(0, 0, 0, 0.35);
-            --radius-xl: 32px;
-            --radius-lg: 24px;
-            --radius-md: 18px;
-            --max: 1240px;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            margin: 0;
-            font-family: "Inter", sans-serif;
-            background:
-                radial-gradient(circle at top left, rgba(110, 168, 254, 0.16), transparent 26%),
-                radial-gradient(circle at top right, rgba(255, 255, 255, 0.08), transparent 18%),
-                radial-gradient(circle at bottom, rgba(125, 90, 255, 0.16), transparent 28%),
-                var(--bg);
-            color: var(--text);
-        }
-
-        img {
-            display: block;
-            max-width: 100%;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        button,
-        input,
-        textarea {
-            font: inherit;
-        }
-
-        .container {
-            width: min(var(--max), calc(100% - 32px));
-            margin: 0 auto;
-        }
-
-        .site-header {
-            position: sticky;
-            top: 0;
-            z-index: 50;
-            backdrop-filter: blur(18px);
-            background: rgba(6, 7, 10, 0.6);
-            border-bottom: 1px solid var(--line);
-        }
-
-        .nav {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 24px;
-            min-height: 86px;
-        }
-
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
-
-        .brand img {
-            width: 48px;
-            height: 48px;
-            object-fit: contain;
-        }
-
-        .brand-copy strong {
-            display: block;
-            font-size: 0.92rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-        }
-
-        .brand-copy span {
-            color: var(--muted-soft);
-            font-size: 0.92rem;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 28px;
-            color: var(--muted);
-            font-size: 0.96rem;
-        }
-
-        .nav-links a:hover,
-        .nav-links a:focus-visible {
-            color: var(--text);
-        }
-
-        .nav-cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 13px 18px;
-            border-radius: 999px;
-            border: 1px solid var(--line);
-            background: rgba(255, 255, 255, 0.08);
-            transition: 0.25s ease;
-        }
-
-        .nav-cta:hover {
-            background: rgba(255, 255, 255, 0.14);
-            transform: translateY(-1px);
-        }
-
-        .hero {
-            padding: 72px 0 36px;
-        }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1.05fr 0.95fr;
-            gap: 48px;
-            align-items: center;
-        }
-
-        .eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 10px 14px;
-            border-radius: 999px;
-            border: 1px solid var(--line);
-            background: rgba(255, 255, 255, 0.05);
-            color: var(--muted);
-            text-transform: uppercase;
-            letter-spacing: 0.24em;
-            font-size: 0.72rem;
-        }
-
-        .dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: #8ec5ff;
-            box-shadow: 0 0 18px rgba(142, 197, 255, 0.8);
-        }
-
-        h1 {
-            margin: 18px 0 0;
-            font-size: clamp(2.8rem, 7vw, 5.5rem);
-            line-height: 0.98;
-            letter-spacing: -0.05em;
-        }
-
-        .hero p.lead {
-            max-width: 620px;
-            margin: 22px 0 0;
-            font-size: 1.08rem;
-            line-height: 1.9;
-            color: var(--muted);
-        }
-
-        .hero-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 14px;
-            margin-top: 28px;
-        }
-
-        .btn,
-        .btn-ghost {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            min-height: 52px;
-            padding: 0 22px;
-            border-radius: 999px;
-            transition: 0.25s ease;
-        }
-
-        .btn {
-            background: #fff;
-            color: #050505;
-            font-weight: 600;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-        }
-
-        .btn-ghost {
-            border: 1px solid var(--line);
-            background: rgba(255, 255, 255, 0.05);
-            color: var(--text);
-        }
-
-        .btn-ghost:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .hero-stats {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 14px;
-            margin-top: 32px;
-            max-width: 620px;
-        }
-
-        .stat {
-            padding: 18px;
-            border: 1px solid var(--line);
-            border-radius: var(--radius-md);
-            background: var(--bg-soft);
-            backdrop-filter: blur(14px);
-        }
-
-        .stat strong {
-            display: block;
-            font-size: 1.5rem;
-        }
-
-        .stat span {
-            display: block;
-            margin-top: 6px;
-            color: var(--muted-soft);
-            line-height: 1.5;
-            font-size: 0.95rem;
-        }
-
-        .floating-board {
-            position: relative;
-            min-height: 640px;
-            border-radius: var(--radius-xl);
-            border: 1px solid var(--line);
-            background:
-                radial-gradient(circle at top, rgba(255, 255, 255, 0.12), transparent 35%),
-                radial-gradient(circle at bottom, rgba(87, 72, 214, 0.2), transparent 28%),
-                rgba(255, 255, 255, 0.04);
-            box-shadow: var(--shadow);
-            overflow: hidden;
-        }
-
-        .floating-card {
-            position: absolute;
-            width: 170px;
-            border-radius: 22px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.13);
-            background: rgba(14, 14, 18, 0.92);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.42);
-            transform: translate3d(var(--x), var(--y), 0) rotate(var(--r));
-            transition: transform 0.35s ease, opacity 0.35s ease, box-shadow 0.35s ease;
-            will-change: transform;
-            cursor: pointer;
-        }
-
-        .floating-card.is-active {
-            box-shadow: 0 28px 90px rgba(0, 0, 0, 0.52);
-        }
-
-        .floating-card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-        }
-
-        .floating-meta {
-            padding: 14px 14px 16px;
-        }
-
-        .floating-meta small {
-            display: block;
-            color: var(--muted-soft);
-            text-transform: uppercase;
-            letter-spacing: 0.24em;
-            font-size: 0.62rem;
-        }
-
-        .floating-meta strong {
-            display: block;
-            margin-top: 7px;
-            line-height: 1.35;
-            font-size: 0.92rem;
-        }
-
-        .board-caption {
-            position: absolute;
-            left: 20px;
-            right: 20px;
-            bottom: 20px;
-            display: grid;
-            grid-template-columns: 1fr auto;
-            gap: 18px;
-            align-items: end;
-            padding: 18px 20px;
-            border-radius: 22px;
-            border: 1px solid var(--line);
-            background: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(16px);
-        }
-
-        .board-caption p,
-        .board-caption span {
-            margin: 0;
-        }
-
-        .board-caption span {
-            display: block;
-            margin-bottom: 8px;
-            font-size: 0.72rem;
-            text-transform: uppercase;
-            letter-spacing: 0.24em;
-            color: var(--muted-soft);
-        }
-
-        .board-caption p {
-            color: var(--muted);
-            max-width: 380px;
-            line-height: 1.7;
-            font-size: 0.95rem;
-        }
-
-        section.block {
-            padding: 42px 0;
-        }
-
-        .section-head {
-            display: flex;
-            align-items: end;
-            justify-content: space-between;
-            gap: 24px;
-            margin-bottom: 28px;
-        }
-
-        .section-head small {
-            display: block;
-            margin-bottom: 10px;
-            color: var(--muted-soft);
-            font-size: 0.72rem;
-            text-transform: uppercase;
-            letter-spacing: 0.24em;
-        }
-
-        h2 {
-            margin: 0;
-            font-size: clamp(2rem, 4vw, 3.2rem);
-            letter-spacing: -0.04em;
-        }
-
-        .section-head p {
-            max-width: 540px;
-            color: var(--muted);
-            line-height: 1.8;
-            margin: 0;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 18px;
-        }
-
-        .project-card {
-            border: 1px solid var(--line);
-            border-radius: 28px;
-            overflow: hidden;
-            background: var(--bg-soft);
-            transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-6px);
-            border-color: rgba(255, 255, 255, 0.18);
-            background: rgba(255, 255, 255, 0.06);
-        }
-
-        .project-visual {
-            position: relative;
-        }
-
-        .project-visual img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-        }
-
-        .project-badges {
-            position: absolute;
-            top: 16px;
-            left: 16px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .badge {
-            padding: 8px 12px;
-            border-radius: 999px;
-            border: 1px solid rgba(255, 255, 255, 0.14);
-            background: rgba(0, 0, 0, 0.38);
-            backdrop-filter: blur(12px);
-            font-size: 0.74rem;
-            color: rgba(255, 255, 255, 0.92);
-        }
-
-        .project-copy {
-            padding: 20px;
-        }
-
-        .project-copy h3 {
-            margin: 0;
-            font-size: 1.16rem;
-        }
-
-        .project-copy p {
-            margin: 10px 0 0;
-            color: var(--muted);
-            line-height: 1.75;
-            font-size: 0.95rem;
-        }
-
-        .about-grid,
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 0.95fr 1.05fr;
-            gap: 18px;
-        }
-
-        .panel {
-            padding: 28px;
-            border-radius: var(--radius-xl);
-            border: 1px solid var(--line);
-            background: var(--bg-soft);
-            backdrop-filter: blur(14px);
-        }
-
-        .panel p {
-            color: var(--muted);
-            line-height: 1.9;
-        }
-
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 18px;
-        }
-
-        .feature {
-            padding: 24px;
-            border-radius: var(--radius-lg);
-            border: 1px solid var(--line);
-            background: rgba(255, 255, 255, 0.04);
-        }
-
-        .feature h3 {
-            margin: 0;
-            font-size: 1.05rem;
-        }
-
-        .feature p {
-            margin: 10px 0 0;
-            color: var(--muted);
-            line-height: 1.8;
-            font-size: 0.95rem;
-        }
-
-        .tools {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 22px;
-        }
-
-        .tool {
-            padding: 11px 16px;
-            border-radius: 999px;
-            border: 1px solid var(--line);
-            background: rgba(0, 0, 0, 0.28);
-            color: rgba(255, 255, 255, 0.84);
-        }
-
-        .contact-list {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 14px;
-        }
-
-        .contact-item {
-            padding: 20px;
-            border-radius: 22px;
-            border: 1px solid var(--line);
-            background: rgba(0, 0, 0, 0.24);
-        }
-
-        .contact-item span {
-            display: block;
-            color: var(--muted-soft);
-            font-size: 0.88rem;
-        }
-
-        .contact-item strong {
-            display: block;
-            margin-top: 8px;
-            line-height: 1.6;
-        }
-
-        .site-footer {
-            padding: 40px 0 60px;
-        }
-
-        .footer-inner {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 18px;
-            padding-top: 20px;
-            border-top: 1px solid var(--line);
-            color: var(--muted-soft);
-        }
-
-        .footer-inner img {
-            width: 52px;
-        }
-
-        [data-reveal] {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.7s ease, transform 0.7s ease;
-        }
-
-        [data-reveal].is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        @media (max-width: 1100px) {
-
-            .hero-grid,
-            .about-grid,
-            .contact-grid,
-            .section-head {
-                grid-template-columns: 1fr;
-            }
-
-            .projects-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-        }
-
-        @media (max-width: 860px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hero {
-                padding-top: 42px;
-            }
-
-            .floating-board {
-                min-height: 520px;
-            }
-
-            .floating-card {
-                width: 130px;
-            }
-
-            .floating-card img {
-                height: 132px;
-            }
-
-            .board-caption {
-                grid-template-columns: 1fr;
-            }
-
-            .projects-grid,
-            .feature-grid,
-            .contact-list,
-            .hero-stats {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .container {
-                width: min(var(--max), calc(100% - 22px));
-            }
-
-            .nav {
-                min-height: 78px;
-            }
-
-            .brand-copy span,
-            .nav-cta {
-                display: none;
-            }
-
-            .panel,
-            .feature,
-            .project-copy,
-            .contact-item {
-                padding: 20px;
-            }
-
-            .project-visual img {
-                height: 240px;
-            }
-        }
-    </style>
+    <!-- Local CSS -->
+    <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
-    <header class="site-header">
+    <!-- HEADER -->
+    <header class="site-header" data-reveal="3d-up">
         <div class="container nav">
             <a class="brand" href="#top" aria-label="Retour en haut">
-                <img src="img/Logo-bonneResolution.png" alt="Logo Lucas Le Calvez" />
-                <div class="brand-copy">
-                    <strong>Lucas Le Calvez</strong>
-                    <span>Portfolio créatif</span>
-                </div>
+                <img src="img/Logo-bonneResolution.png" alt="Lucas Le Calvez" class="header-logo" />
             </a>
-
             <nav class="nav-links">
                 <a href="#projets">Projets</a>
-                <a href="#apropos">À propos</a>
-                <a href="#competences">Compétences</a>
+                <a href="#apropos">Studio</a>
                 <a href="#contact">Contact</a>
             </nav>
-
-            <a class="nav-cta" href="CV-Alternance-audiovisuel-Lucas-Le-Calvez.pdf" target="_blank">
-                Voir le CV
-            </a>
         </div>
     </header>
 
     <main id="top">
-        <section class="hero">
-            <div class="container hero-grid">
-                <div data-reveal>
-                    <div class="eyebrow">
-                        <span class="dot"></span>
-                        Audiovisuel · 3D · Montage
-                    </div>
-
-                    <h1>Un portfolio plus vivant, plus clair et plus marquant.</h1>
-
-                    <p class="lead">
-                        Bonjour, je suis <strong>Lucas Le Calvez</strong>. Je travaille autour de
-                        l’audiovisuel, du montage vidéo et de la modélisation 3D. Cette nouvelle page d’accueil
-                        met davantage en avant tes projets, avec une lecture plus moderne et une navigation plus nette.
+        <!-- HERO SECTION -->
+        <section class="hero" id="hero">
+            <!-- Badges Décoratifs Flottants -->
+            <div class="pop-element star">✦</div>
+            <div class="pop-element flower">✿</div>
+            
+            <div class="container hero-wrap">
+                
+                
+                <h1 class="hero-title">
+                    <span class="line" data-reveal="3d-up">DIRECTION</span>
+                    <span class="line outline" data-reveal="3d-up" data-delay="1">ARTISTIQUE</span>
+                    <span class="line" data-reveal="3d-up" data-delay="2">& 3D MAKER</span>
+                </h1>
+                
+                <div class="hero-footer">
+                    <p class="hero-desc" data-reveal="3d-up" data-delay="3">
+                        Bienvenue dans mon univers. Je combine technique audiovisuelle créative et maîtrise du rendu 3D.
                     </p>
+                    <a href="#projets" class="scroll-badge" aria-label="Plongez dans les projets" data-reveal="3d-up" data-delay="4">
+                        Plongez !<br>↓
+                    </a>
+                </div>
+            </div>
+        </section>
 
-                    <div class="hero-actions">
-                        <a class="btn" href="#projets">Explorer les projets</a>
-                        <a class="btn-ghost" href="#contact">Me contacter</a>
-                    </div>
+        <!-- 3D TUNNEL PROJECTS SECTION -->
+        <section id="projets" class="tunnel-container">
+            <div class="tunnel-camera">
 
-                    <div class="hero-stats">
-                        <div class="stat">
-                            <strong>12+</strong>
-                            <span>projets visuels et audiovisuels</span>
-                        </div>
-                        <div class="stat">
-                            <strong>3D</strong>
-                            <span>modélisation, ambiance, rendu</span>
-                        </div>
-                        <div class="stat">
-                            <strong>MMI</strong>
-                            <span>profil polyvalent et créatif</span>
-                        </div>
-                    </div>
+                <div class="tunnel-ui" data-reveal="mask-left">
+                    <a href="#apropos" class="tunnel-skip">Passer les projets ↓</a>
                 </div>
 
-                <div class="floating-board" data-reveal id="floatingBoard">
-                    <article class="floating-card is-active" style="--x: 5%; --y: 8%; --r: -8deg" data-depth="18">
-                        <img src="img/glacierVF.jpg" alt="Projet Océan Arctique" />
-                        <div class="floating-meta">
-                            <small>3D</small>
-                            <strong>Océan Arctique</strong>
-                        </div>
-                    </article>
+                <div class="tunnel-scene" id="tunnel-scene">
 
-                    <article class="floating-card" style="--x: 26%; --y: 18%; --r: 6deg" data-depth="22">
-                        <img src="img/int-VF.png" alt="Projet intérieur abandonné" />
-                        <div class="floating-meta">
-                            <small>3D</small>
-                            <strong>Intérieur abandonné</strong>
-                        </div>
-                    </article>
+                    <!-- 17 TUNNEL CARDS -->
+                    
 
-                    <article class="floating-card" style="--x: 48%; --y: 10%; --r: -4deg" data-depth="16">
-                        <img src="img/0116.png" alt="Projet paysage naturel" />
-                        <div class="floating-meta">
-                            <small>3D</small>
-                            <strong>Paysage naturel</strong>
-                        </div>
-                    </article>
+                    <div class="tunnel-card">
+                        <a href="projects/ocean-arctique.html">
+                            <div class="tunnel-image"><img src="img/glacierVF.jpg" alt="Océan Arctique"
+                                    loading="lazy" /></div>
+                            <div class="tunnel-info">
+                                <h3 class="tunnel-title">Océan Arctique</h3>
+                                <span class="tunnel-meta">Environnement 3D</span>
+                            </div>
+                        </a>
+                    </div>
 
-                    <article class="floating-card" style="--x: 68%; --y: 19%; --r: 8deg" data-depth="20">
-                        <img src="img/miniature-ITW.png" alt="Interview Lannion Cœur de Ville" />
-                        <div class="floating-meta">
-                            <small>Montage</small>
-                            <strong>Lannion Cœur de Ville</strong>
-                        </div>
-                    </article>
+                    <div class="tunnel-card">
+                        <a href="projects/paysage-cotier.html">
+                            <div class="tunnel-image"><img src="img/0116.png" alt="Naturel" loading="lazy" /></div>
+                            <div class="tunnel-info">
+                                <h3 class="tunnel-title">Paysage Côtier</h3>
+                                <span class="tunnel-meta">Texture & Rendu</span>
+                            </div>
+                        </a>
+                    </div>
 
-                    <article class="floating-card" style="--x: 76%; --y: 7%; --r: -6deg" data-depth="12">
-                        <img src="img/Iphone.png" alt="Projet iPhone 3D" />
-                        <div class="floating-meta">
-                            <small>3D</small>
-                            <strong>iPhone concept</strong>
-                        </div>
-                    </article>
+                    <div class="tunnel-card">
+                        <a href="projects/concept-iphone.html">
+                            <div class="tunnel-image"><img src="img/Iphone.png" alt="Concept iPhone" loading="lazy" />
+                            </div>
+                            <div class="tunnel-info">
+                                <h3 class="tunnel-title">Concept iPhone</h3>
+                                <span class="tunnel-meta">Design Produit</span>
+                            </div>
+                        </a>
+                    </div>
 
-                    <article class="floating-card" style="--x: 8%; --y: 49%; --r: 5deg" data-depth="15">
-                        <img src="img/Miniature-Diorama.png" alt="Projet Diorama" />
-                        <div class="floating-meta">
-                            <small>3D</small>
-                            <strong>Diorama</strong>
-                        </div>
-                    </article>
+                    <div class="tunnel-card">
+                        <a href="projects/interieur-abandonne.html">
+                            <div class="tunnel-image"><img src="img/int-VF.png" alt="Intérieur Abandonné"
+                                    loading="lazy" /></div>
+                            <div class="tunnel-info">
+                                <h3 class="tunnel-title">Intérieur Abandonné</h3>
+                                <span class="tunnel-meta">Rendu Archi</span>
+                            </div>
+                        </a>
+                    </div>
 
-                    <article class="floating-card" style="--x: 33%; --y: 56%; --r: -7deg" data-depth="18">
-                        <img src="img/affiche-ALWestFest.png" alt="Affiche À l'West Fest" />
-                        <div class="floating-meta">
-                            <small>Affiche</small>
-                            <strong>À l’West Fest</strong>
-                        </div>
-                    </article>
+                    <div class="tunnel-card">
+                        <a href="projects/interview-coeur-de-ville.html">
+                            <div class="tunnel-image"><img src="img/miniature-ITW.png" alt="Interview Lannion"
+                                    loading="lazy" /></div>
+                            <div class="tunnel-info">
+                                <h3 class="tunnel-title">Interview Cœur de Ville</h3>
+                                <span class="tunnel-meta">Montage Vidéo</span>
+                            </div>
+                        </a>
+                    </div>
 
-                    <article class="floating-card" style="--x: 58%; --y: 52%; --r: 4deg" data-depth="14">
-                        <img src="img/Miniature-UrbanBall.png" alt="Projet UrbanBall" />
-                        <div class="floating-meta">
-                            <small>Article · 3D</small>
-                            <strong>UrbanBall</strong>
-                        </div>
-                    </article>
+                    <div class="tunnel-card">
+                        <a href="projects/diorama.html">
+                            <div class="tunnel-image"><img src="img/Miniature-Diorama.png" alt="Diorama"
+                                    loading="lazy" /></div>
+                            <div class="tunnel-info">
+                                <h3 class="tunnel-title">Diorama</h3>
+                                <span class="tunnel-meta">Minimalisme 3D</span>
+                            </div>
+                        </a>
+                    </div>
 
-                    <div class="board-caption">
-                        <div>
-                            <span>Vue projets</span>
-                            <strong>Une entrée immersive inspirée du nuage d’images que tu aimais</strong>
-                        </div>
-                        <p>
-                            Au lieu d’une grille classique dès le départ, l’accueil montre tes univers de manière plus
-                            vivante.
-                        </p>
+                    <div class="tunnel-card">
+                        <a href="projects/urbanball.html">
+                            <div class="tunnel-image"><img src="img/Miniature-UrbanBall.png" alt="UrbanBall"
+                                    loading="lazy" /></div>
+                            <div class="tunnel-info">
+                                <h3 class="tunnel-title">UrbanBall</h3>
+                                <span class="tunnel-meta">Direction Web</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="tunnel-card">
+                        <a href="projects/court-metrage.html">
+                            <div class="tunnel-image"><img src="img/Court-metrage.png" alt="Court-métrage"
+                                    loading="lazy" /></div>
+                            <div class="tunnel-info">
+                                <h3 class="tunnel-title">Court-Métrage</h3>
+                                <span class="tunnel-meta">Réalisation</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="tunnel-card">
+                        <a href="projects/a-l-west-fest.html">
+                            <div class="tunnel-image"><img src="img/affiche-ALWestFest.png" alt="À l'West Fest"
+                                    loading="lazy" /></div>
+                            <div class="tunnel-info">
+                                <h3 class="tunnel-title">À l'West Fest</h3>
+                                <span class="tunnel-meta">Affiche</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="tunnel-card">
+                        <a href="projects/pumpkin-3d.html">
+                            <div class="tunnel-image"><img src="img/citrouille.png" alt="Halloween" loading="lazy" />
+                            </div>
+                            <div class="tunnel-info">
+                                <h3 class="tunnel-title">Pumpkin 3D</h3>
+                                <span class="tunnel-meta">Saison Halloween</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="tunnel-card">
+                        <a href="projects/ile-flottante.html">
+                            <div class="tunnel-image"><img src="img/îleVF.png" alt="Île Flottante" loading="lazy" />
+                            </div>
+                            <div class="tunnel-info">
+                                <h3 class="tunnel-title">Île Flottante</h3>
+                                <span class="tunnel-meta">Concept Art</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="tunnel-card">
+                        <a href="projects/demmain.html">
+                            <div class="tunnel-image"><img src="img/miniature-deMMaIn.png" alt="deMMaIn"
+                                    loading="lazy" /></div>
+                            <div class="tunnel-info">
+                                <h3 class="tunnel-title">deMMaIn</h3>
+                                <span class="tunnel-meta">Identité</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="tunnel-card">
+                        <a href="projects/portrait-realisateur.html">
+                            <div class="tunnel-image"><img src="img/miniatureInterview.png" alt="Interview"
+                                    loading="lazy" /></div>
+                            <div class="tunnel-info">
+                                <h3 class="tunnel-title">Portrait Réalisateur</h3>
+                                <span class="tunnel-meta">Audiovisuel</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="tunnel-card">
+                        <a href="projects/profondeurs.html">
+                            <div class="tunnel-image"><img src="img/ocean.png" alt="Océan" loading="lazy" /></div>
+                            <div class="tunnel-info">
+                                <h3 class="tunnel-title">Profondeurs</h3>
+                                <span class="tunnel-meta">Modélisation Fluide</span>
+                            </div>
+                        </a>
+                    </div>
+
+
+                    <div class="tunnel-card">
+                        <a href="projects/nostalgie-ps2.html">
+                            <div class="tunnel-image"><img src="img/PS2.png" alt="PS2" loading="lazy" /></div>
+                            <div class="tunnel-info">
+                                <h3 class="tunnel-title">Nostalgie PS2</h3>
+                                <span class="tunnel-meta">Hard surface 3D</span>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="block" id="projets">
+        <!-- ABOUT SECTION -->
+        <section class="section" id="apropos">
             <div class="container">
-                <div class="section-head" data-reveal>
-                    <div>
-                        <small>Sélection</small>
-                        <h2 id="scrambleTitle">Projets sélectionnés</h2>
-                    </div>
-                    <p>
-                        J’ai gardé ton contenu principal, mais avec une présentation plus premium. Le scramble effect
-                        est placé ici
-                        pour apporter une interaction discrète et moderne.
-                    </p>
+                <div class="section-header" data-reveal="3d-up">
+                    <h2 class="section-title">À propos de moi</h2>
                 </div>
 
-                <div class="projects-grid">
-                    <a class="project-card" href="projects/3d-1.html" data-reveal>
-                        <div class="project-visual">
-                            <img src="img/glacierVF.jpg" alt="Océan Arctique" />
-                            <div class="project-badges">
-                                <span class="badge">3D</span>
-                                <span class="badge">2025</span>
-                            </div>
-                        </div>
-                        <div class="project-copy">
-                            <h3>Océan Arctique</h3>
-                            <p>Travail de modélisation et d’ambiance avec une mise en avant plus forte du visuel.</p>
-                        </div>
-                    </a>
-
-                    <a class="project-card" href="projects/3d-8.html" data-reveal>
-                        <div class="project-visual">
-                            <img src="img/miniature-ITW.png" alt="Interview Lannion Cœur de Ville" />
-                            <div class="project-badges">
-                                <span class="badge">Montage</span>
-                                <span class="badge">Interview</span>
-                            </div>
-                        </div>
-                        <div class="project-copy">
-                            <h3>Interview Lannion Cœur de Ville</h3>
-                            <p>Projet vidéo présenté dans une carte plus éditoriale et plus lisible.</p>
-                        </div>
-                    </a>
-
-                    <a class="project-card" href="projects/3d-11.html" data-reveal>
-                        <div class="project-visual">
-                            <img src="img/Miniature-Diorama.png" alt="Diorama" />
-                            <div class="project-badges">
-                                <span class="badge">3D</span>
-                                <span class="badge">Diorama</span>
-                            </div>
-                        </div>
-                        <div class="project-copy">
-                            <h3>Diorama</h3>
-                            <p>Carte projet plus marquée avec meilleur contraste et hiérarchie visuelle.</p>
-                        </div>
-                    </a>
-
-                    <a class="project-card" href="projects/3d-7.html" data-reveal>
-                        <div class="project-visual">
-                            <img src="img/affiche-ALWestFest.png" alt="Affiche À l'West Fest" />
-                            <div class="project-badges">
-                                <span class="badge">Affiche</span>
-                                <span class="badge">Festival</span>
-                            </div>
-                        </div>
-                        <div class="project-copy">
-                            <h3>À l’West Fest</h3>
-                            <p>Travail d’affiche valorisé dans un format plus cohérent avec le reste du portfolio.</p>
-                        </div>
-                    </a>
-
-                    <a class="project-card" href="projects/3d-9.html" data-reveal>
-                        <div class="project-visual">
-                            <img src="img/Iphone.png" alt="iPhone concept" />
-                            <div class="project-badges">
-                                <span class="badge">3D</span>
-                                <span class="badge">Produit</span>
-                            </div>
-                        </div>
-                        <div class="project-copy">
-                            <h3>iPhone Concept</h3>
-                            <p>Projet objet présenté dans une carte plus premium, plus actuelle et plus simple à
-                                parcourir.</p>
-                        </div>
-                    </a>
-
-                    <a class="project-card" href="projects/3d-12.html" data-reveal>
-                        <div class="project-visual">
-                            <img src="img/Miniature-UrbanBall.png" alt="UrbanBall" />
-                            <div class="project-badges">
-                                <span class="badge">Article</span>
-                                <span class="badge">3D</span>
-                            </div>
-                        </div>
-                        <div class="project-copy">
-                            <h3>UrbanBall</h3>
-                            <p>Projet hybride avec un rendu visuel plus fort et un accès direct à la page dédiée.</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <section class="block" id="apropos">
-            <div class="container about-grid">
-                <div class="panel" data-reveal>
-                    <small class="eyebrow" style="padding: 0; background: none; border: 0">À propos</small>
-                    <h2 style="margin-top: 16px">Une structure plus simple à repérer</h2>
-                    <p>
-                        Bonjour, je suis <strong>Lucas Le Calvez</strong>. Originaire de <strong>Paimpol</strong>, je
-                        réside
-                        maintenant à <strong>Perros-Guirec</strong> pour mes études à l’IUT de Lannion. Passionné
-                        d’<strong>audiovisuel</strong>
-                        et de <strong>modélisation 3D</strong>, je réalise différents projets pour progresser en
-                        création visuelle,
-                        en montage et en narration.
-                    </p>
-                    <p>
-                        Les personnes avec lesquelles je collabore disent de moi que je suis <strong>à
-                            l’écoute</strong>,
-                        <strong>sérieux</strong> et <strong>fiable</strong>. Le BUT MMI a été une vraie révélation car
-                        il relie
-                        communication, web et audiovisuel.
-                    </p>
-                    <div class="hero-actions">
-                        <a class="btn" href="https://www.youtube.com/watch?v=qR66DXuluYU" target="_blank">Voir le CV
-                            vidéo</a>
-                    </div>
-                </div>
-
-                <div class="feature-grid">
-                    <div class="feature" data-reveal>
-                        <h3>Navigation nette</h3>
-                        <p>Une home plus lisible, avec des sections bien découpées et des repères visuels plus forts.
+                <div class="about-grid">
+                    <div class="about-text" data-reveal="3d-up">
+                        <p>
+                            Originaire de Paimpol et basé à Perros-Guirec, j'évolue au sein du département MMI (Métiers
+                            du Multimédia et de l'Internet) de Lannion. Mon parcours relie la <strong>communication
+                                visuelle</strong>, les <strong>technologies web</strong> et la <strong>production
+                                audiovisuelle</strong>.
                         </p>
                     </div>
-                    <div class="feature" data-reveal>
-                        <h3>Projets mieux valorisés</h3>
-                        <p>Chaque projet est mieux présenté, avec une hiérarchie plus claire et plus immersive.</p>
-                    </div>
-                    <div class="feature" data-reveal>
-                        <h3>Direction plus moderne</h3>
-                        <p>Plus de profondeur, de contraste, de flou, et des animations simples mais efficaces.</p>
-                    </div>
-                    <div class="feature" data-reveal>
-                        <h3>Base évolutive</h3>
-                        <p>On peut maintenant refaire les pages projets une par une sur cette nouvelle direction.</p>
+                    <div class="about-text" data-reveal="3d-up" data-delay="1">
+                        <p>
+                            Je conçois chaque projet avec rigueur, de la pré-production à l'étalonnage, en passant par
+                            le compositing 3D. <strong>L'élégance</strong> et <strong>l'impact</strong> sont les
+                            maîtres-mots de mon travail.
+                        </p>
                     </div>
                 </div>
             </div>
-        </section>
 
-        <section class="block" id="competences">
-            <div class="container panel" data-reveal>
-                <div class="section-head" style="margin-bottom: 0">
-                    <div>
-                        <small>Compétences</small>
-                        <h2>Outils et univers</h2>
-                    </div>
-                    <p>
-                        J’ai repris l’idée de tes logiciels, mais sous une forme plus propre qu’un simple bandeau
-                        défilant.
-                    </p>
-                </div>
-
-                <div class="tools">
-                    <span class="tool">Blender</span>
-                    <span class="tool">Premiere Pro</span>
-                    <span class="tool">DaVinci Resolve</span>
-                    <span class="tool">Figma</span>
-                    <span class="tool">Photoshop</span>
-                    <span class="tool">Illustrator</span>
-                    <span class="tool">Affinity Designer</span>
-                    <span class="tool">Affinity Photo</span>
-                    <span class="tool">Canva</span>
-                    <span class="tool">CapCut</span>
-                    <span class="tool">VS Code</span>
-                </div>
-            </div>
-        </section>
-
-        <section class="block" id="contact">
-            <div class="container contact-grid">
-                <div class="panel" data-reveal>
-                    <small class="eyebrow" style="padding: 0; background: none; border: 0">Contact</small>
-                    <h2 style="margin-top: 16px">Disponible pour une alternance, un stage ou un projet créatif.</h2>
-                    <p>
-                        Cette zone peut ensuite être reliée à un vrai formulaire, à tes pages projet, à ton CV et à tes
-                        réseaux.
-                    </p>
-                </div>
-
-                <div class="panel" data-reveal>
-                    <div class="contact-list">
-                        <a class="contact-item" href="mailto:contact@lucaslecalvez.fr">
-                            <span>Email</span>
-                            <strong>contact@lucaslecalvez.fr</strong>
-                        </a>
-                        <a class="contact-item" href="https://www.linkedin.com/in/lucas-le-calvez/" target="_blank">
-                            <span>LinkedIn</span>
-                            <strong>lucas-le-calvez</strong>
-                        </a>
-                        <a class="contact-item" href="https://www.instagram.com/lucas_le_calvez_pro/" target="_blank">
-                            <span>Instagram</span>
-                            <strong>@lucas_le_calvez_pro</strong>
-                        </a>
-                        <a class="contact-item" href="https://www.youtube.com/watch?v=qR66DXuluYU" target="_blank">
-                            <span>CV vidéo</span>
-                            <strong>Présentation vidéo</strong>
-                        </a>
-                    </div>
+            <!-- Full-width SKILLS MARQUEE -->
+            <div class="skills-curve-wrapper" data-reveal="3d-up" data-delay="2">
+                <div class="curve-track">
+                    <svg width="2400" height="150" viewBox="0 0 2400 150">
+                        <path id="wave1" d="M 0 75 Q 150 0 300 75 T 600 75 T 900 75 T 1200 75 T 1500 75 T 1800 75 T 2100 75 T 2400 75" fill="none" />
+                        <text font-family="'Outfit', sans-serif" font-size="36px" font-weight="600" fill="var(--text-blue)" text-transform="uppercase">
+                            <textPath href="#wave1" startOffset="0" textLength="2300" lengthAdjust="spacing">
+                                BLENDER <tspan fill="var(--accent-pink)">✿</tspan> PREMIERE PRO <tspan fill="var(--accent-yellow)">✦</tspan> <tspan fill="var(--accent-pink)">DAVINCI RESOLVE</tspan> <tspan fill="var(--accent-pink)">✿</tspan> PHOTOSHOP <tspan fill="var(--accent-yellow)">✦</tspan> <tspan fill="var(--accent-yellow)">FIGMA</tspan> <tspan fill="var(--accent-pink)">✿</tspan> DIRECTION WEB <tspan fill="var(--accent-yellow)">✦</tspan>
+                            </textPath>
+                        </text>
+                    </svg>
+                    <!-- Second identical SVG for seamless looping -->
+                    <svg width="2400" height="150" viewBox="0 0 2400 150">
+                        <path id="wave2" d="M 0 75 Q 150 0 300 75 T 600 75 T 900 75 T 1200 75 T 1500 75 T 1800 75 T 2100 75 T 2400 75" fill="none" />
+                        <text font-family="'Outfit', sans-serif" font-size="36px" font-weight="600" fill="var(--text-blue)" text-transform="uppercase">
+                            <textPath href="#wave2" startOffset="0" textLength="2300" lengthAdjust="spacing">
+                                BLENDER <tspan fill="var(--accent-pink)">✿</tspan> PREMIERE PRO <tspan fill="var(--accent-yellow)">✦</tspan> <tspan fill="var(--accent-pink)">DAVINCI RESOLVE</tspan> <tspan fill="var(--accent-pink)">✿</tspan> PHOTOSHOP <tspan fill="var(--accent-yellow)">✦</tspan> <tspan fill="var(--accent-yellow)">FIGMA</tspan> <tspan fill="var(--accent-pink)">✿</tspan> DIRECTION WEB <tspan fill="var(--accent-yellow)">✦</tspan>
+                            </textPath>
+                        </text>
+                    </svg>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="site-footer">
-        <div class="container footer-inner">
-            <img src="img/Logo-bonneResolution.png" alt="Logo Lucas Le Calvez" />
-            <span>Portfolio de Lucas Le Calvez</span>
+    <!-- FOOTER SECTION -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-cta" data-reveal="3d-up">
+                <p class="cta-subtitle">Un projet en tête ? ✿</p>
+                <a href="mailto:lecalvezlucas222@gmail.com" class="cta-massive-link">
+                    <h2 class="footer-huge" data-hover="DISCUTONS ➔">DISCUTONS.</h2>
+                </a>
+                
+                <div class="cta-buttons" data-reveal="3d-up" data-delay="1">
+                    <a href="mailto:lecalvezlucas222@gmail.com" class="btn-primary">Envoyer un e-mail</a>
+                    <a href="https://www.linkedin.com/in/lucas-le-calvez/" target="_blank" class="btn-secondary">LinkedIn</a>
+                    <a href="https://www.instagram.com/lucas_le_calvez_pro/" target="_blank" class="btn-secondary">Instagram</a>
+                    <a href="CV-Alternance-audiovisuel-Lucas-Le-Calvez.pdf" target="_blank" class="btn-secondary">Télécharger mon CV</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom" data-reveal="3d-up" data-delay="2">
+                <div class="footer-copyright">
+                    <img src="img/Logo-bonneResolution.png" alt="Lucas Le Calvez" class="footer-logo" />
+                    <span>© 2026 — Tous droits réservés.</span>
+                </div>
+                <a href="#top" class="back-to-top">Retour en haut ↑</a>
+            </div>
         </div>
     </footer>
 
-    <script>
-        const revealElements = document.querySelectorAll('[data-reveal]');
-        const revealObserver = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                    }
-                });
-            },
-            { threshold: 0.12 }
-        );
-
-        revealElements.forEach((element) => revealObserver.observe(element));
-
-        const scrambleTitle = document.getElementById('scrambleTitle');
-        const finalText = scrambleTitle.textContent;
-        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-        let scrambling = false;
-
-        function runScramble() {
-            if (scrambling) return;
-            scrambling = true;
-            let frame = 0;
-
-            const interval = setInterval(() => {
-                frame += 1;
-                const progress = Math.floor(frame / 3);
-                scrambleTitle.textContent = finalText
-                    .split('')
-                    .map((char, index) => {
-                        if (char === ' ') return ' ';
-                        if (index < progress) return finalText[index];
-                        return chars[Math.floor(Math.random() * chars.length)];
-                    })
-                    .join('');
-
-                if (frame > finalText.length * 3) {
-                    clearInterval(interval);
-                    scrambleTitle.textContent = finalText;
-                    scrambling = false;
-                }
-            }, 32);
-        }
-
-        scrambleTitle.addEventListener('mouseenter', runScramble);
-        scrambleTitle.addEventListener('focus', runScramble);
-
-        const board = document.getElementById('floatingBoard');
-        const cards = board.querySelectorAll('.floating-card');
-
-        board.addEventListener('pointermove', (event) => {
-            const rect = board.getBoundingClientRect();
-            const px = (event.clientX - rect.left) / rect.width - 0.5;
-            const py = (event.clientY - rect.top) / rect.height - 0.5;
-
-            cards.forEach((card) => {
-                const depth = Number(card.dataset.depth || 12);
-                const offsetX = px * depth;
-                const offsetY = py * depth;
-                const baseX = card.style.getPropertyValue('--x');
-                const baseY = card.style.getPropertyValue('--y');
-                const baseR = card.style.getPropertyValue('--r');
-                card.style.transform = `translate3d(calc(${baseX} + ${offsetX}px), calc(${baseY} + ${offsetY}px), 0) rotate(${baseR})`;
-            });
-        });
-
-        board.addEventListener('pointerleave', () => {
-            cards.forEach((card) => {
-                const baseX = card.style.getPropertyValue('--x');
-                const baseY = card.style.getPropertyValue('--y');
-                const baseR = card.style.getPropertyValue('--r');
-                card.style.transform = `translate3d(${baseX}, ${baseY}, 0) rotate(${baseR})`;
-            });
-        });
-
-        cards.forEach((card) => {
-            card.addEventListener('mouseenter', () => {
-                cards.forEach((item) => item.classList.remove('is-active'));
-                card.classList.add('is-active');
-            });
-        });
-    </script>
+    <!-- Local JS -->
+    <script src="js/script.js"></script>
 </body>
 
 </html>
