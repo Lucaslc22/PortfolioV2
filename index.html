@@ -33,17 +33,26 @@
     <main id="top">
         <!-- HERO SECTION -->
         <section class="hero" id="hero">
-            <!-- Badges Décoratifs Flottants -->
-            <div class="pop-element star">✦</div>
-            <div class="pop-element flower">✿</div>
+            <div class="hero-bg-parallax">
+                <div class="collage-container">
+                    <div class="collage-item p1"><img src="img/glacierVF.jpg" alt=""></div>
+                    <div class="collage-item p2"><img src="img/Iphone.png" alt=""></div>
+                    <div class="collage-item p3"><img src="img/0116.png" alt=""></div>
+                    <div class="collage-item p4"><img src="img/int-VF.png" alt=""></div>
+                    <div class="collage-item p5"><img src="img/citrouille.png" alt=""></div>
+                    <div class="collage-item p6"><img src="img/Miniature-Diorama.png" alt=""></div>
+                    <div class="collage-item p7"><img src="img/PS2.png" alt=""></div>
+                    <div class="collage-item p8"><img src="img/ocean.png" alt=""></div>
+                    <div class="collage-item p9"><img src="img/affiche-ALWestFest.png" alt=""></div>
+                </div>
+            </div>
+            <div class="hero-overlay"></div>
             
             <div class="container hero-wrap">
-                
-                
                 <h1 class="hero-title">
-                    <span class="line" data-reveal="3d-up">DIRECTION</span>
-                    <span class="line outline" data-reveal="3d-up" data-delay="1">ARTISTIQUE</span>
-                    <span class="line" data-reveal="3d-up" data-delay="2">& 3D MAKER</span>
+                    <span class="line" data-reveal="3d-up">Etudiant</span>
+                    <span class="line outline" data-reveal="3d-up" data-delay="1">MMi 2</span>
+                    <span class="line" data-reveal="3d-up" data-delay="2">à Lannion</span>
                 </h1>
                 
                 <div class="hero-footer">
@@ -51,187 +60,33 @@
                         Bienvenue dans mon univers. Je combine technique audiovisuelle créative et maîtrise du rendu 3D.
                     </p>
                     <a href="#projets" class="scroll-badge" aria-label="Plongez dans les projets" data-reveal="3d-up" data-delay="4">
-                        Plongez !<br>↓
+                        PROJETS<br>↓
                     </a>
                 </div>
             </div>
         </section>
 
-        <!-- 3D TUNNEL PROJECTS SECTION -->
-        <section id="projets" class="tunnel-container">
-            <div class="tunnel-camera">
-
-                <div class="tunnel-ui" data-reveal="mask-left">
-                    <a href="#apropos" class="tunnel-skip">Passer les projets ↓</a>
+        <!-- FILTERED PROJECTS GRID -->
+        <section id="projets" class="projects-section">
+            <div class="container">
+                <div class="projects-header" data-reveal="3d-up">
+                    <h2 class="section-title">MES <span>PROJETS</span></h2>
+                    
+                    <!-- Filters -->
+                    <div class="filter-wrapper">
+                        <div class="filter-list" id="project-filters">
+                            <button class="filter-btn active" data-filter="all">Tous</button>
+                            <button class="filter-btn" data-filter="3d">3D</button>
+                            <button class="filter-btn" data-filter="montage">Montage vidéo</button>
+                            <button class="filter-btn" data-filter="affiche">Affiche</button>
+                            <button class="filter-btn" data-filter="article">Article</button>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="tunnel-scene" id="tunnel-scene">
-
-                    <!-- 17 TUNNEL CARDS -->
-                    
-
-                    <div class="tunnel-card">
-                        <a href="projects/ocean-arctique.html">
-                            <div class="tunnel-image"><img src="img/glacierVF.jpg" alt="Océan Arctique"
-                                    loading="lazy" /></div>
-                            <div class="tunnel-info">
-                                <h3 class="tunnel-title">Océan Arctique</h3>
-                                <span class="tunnel-meta">Environnement 3D</span>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="tunnel-card">
-                        <a href="projects/paysage-cotier.html">
-                            <div class="tunnel-image"><img src="img/0116.png" alt="Naturel" loading="lazy" /></div>
-                            <div class="tunnel-info">
-                                <h3 class="tunnel-title">Paysage Côtier</h3>
-                                <span class="tunnel-meta">Texture & Rendu</span>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="tunnel-card">
-                        <a href="projects/concept-iphone.html">
-                            <div class="tunnel-image"><img src="img/Iphone.png" alt="Concept iPhone" loading="lazy" />
-                            </div>
-                            <div class="tunnel-info">
-                                <h3 class="tunnel-title">Concept iPhone</h3>
-                                <span class="tunnel-meta">Design Produit</span>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="tunnel-card">
-                        <a href="projects/interieur-abandonne.html">
-                            <div class="tunnel-image"><img src="img/int-VF.png" alt="Intérieur Abandonné"
-                                    loading="lazy" /></div>
-                            <div class="tunnel-info">
-                                <h3 class="tunnel-title">Intérieur Abandonné</h3>
-                                <span class="tunnel-meta">Rendu Archi</span>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="tunnel-card">
-                        <a href="projects/interview-coeur-de-ville.html">
-                            <div class="tunnel-image"><img src="img/miniature-ITW.png" alt="Interview Lannion"
-                                    loading="lazy" /></div>
-                            <div class="tunnel-info">
-                                <h3 class="tunnel-title">Interview Cœur de Ville</h3>
-                                <span class="tunnel-meta">Montage Vidéo</span>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="tunnel-card">
-                        <a href="projects/diorama.html">
-                            <div class="tunnel-image"><img src="img/Miniature-Diorama.png" alt="Diorama"
-                                    loading="lazy" /></div>
-                            <div class="tunnel-info">
-                                <h3 class="tunnel-title">Diorama</h3>
-                                <span class="tunnel-meta">Minimalisme 3D</span>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="tunnel-card">
-                        <a href="projects/urbanball.html">
-                            <div class="tunnel-image"><img src="img/Miniature-UrbanBall.png" alt="UrbanBall"
-                                    loading="lazy" /></div>
-                            <div class="tunnel-info">
-                                <h3 class="tunnel-title">UrbanBall</h3>
-                                <span class="tunnel-meta">Direction Web</span>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="tunnel-card">
-                        <a href="projects/court-metrage.html">
-                            <div class="tunnel-image"><img src="img/Court-metrage.png" alt="Court-métrage"
-                                    loading="lazy" /></div>
-                            <div class="tunnel-info">
-                                <h3 class="tunnel-title">Court-Métrage</h3>
-                                <span class="tunnel-meta">Réalisation</span>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="tunnel-card">
-                        <a href="projects/a-l-west-fest.html">
-                            <div class="tunnel-image"><img src="img/affiche-ALWestFest.png" alt="À l'West Fest"
-                                    loading="lazy" /></div>
-                            <div class="tunnel-info">
-                                <h3 class="tunnel-title">À l'West Fest</h3>
-                                <span class="tunnel-meta">Affiche</span>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="tunnel-card">
-                        <a href="projects/pumpkin-3d.html">
-                            <div class="tunnel-image"><img src="img/citrouille.png" alt="Halloween" loading="lazy" />
-                            </div>
-                            <div class="tunnel-info">
-                                <h3 class="tunnel-title">Pumpkin 3D</h3>
-                                <span class="tunnel-meta">Saison Halloween</span>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="tunnel-card">
-                        <a href="projects/ile-flottante.html">
-                            <div class="tunnel-image"><img src="img/îleVF.png" alt="Île Flottante" loading="lazy" />
-                            </div>
-                            <div class="tunnel-info">
-                                <h3 class="tunnel-title">Île Flottante</h3>
-                                <span class="tunnel-meta">Concept Art</span>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="tunnel-card">
-                        <a href="projects/demmain.html">
-                            <div class="tunnel-image"><img src="img/miniature-deMMaIn.png" alt="deMMaIn"
-                                    loading="lazy" /></div>
-                            <div class="tunnel-info">
-                                <h3 class="tunnel-title">deMMaIn</h3>
-                                <span class="tunnel-meta">Identité</span>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="tunnel-card">
-                        <a href="projects/portrait-realisateur.html">
-                            <div class="tunnel-image"><img src="img/miniatureInterview.png" alt="Interview"
-                                    loading="lazy" /></div>
-                            <div class="tunnel-info">
-                                <h3 class="tunnel-title">Portrait Réalisateur</h3>
-                                <span class="tunnel-meta">Audiovisuel</span>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="tunnel-card">
-                        <a href="projects/profondeurs.html">
-                            <div class="tunnel-image"><img src="img/ocean.png" alt="Océan" loading="lazy" /></div>
-                            <div class="tunnel-info">
-                                <h3 class="tunnel-title">Profondeurs</h3>
-                                <span class="tunnel-meta">Modélisation Fluide</span>
-                            </div>
-                        </a>
-                    </div>
-
-
-                    <div class="tunnel-card">
-                        <a href="projects/nostalgie-ps2.html">
-                            <div class="tunnel-image"><img src="img/PS2.png" alt="PS2" loading="lazy" /></div>
-                            <div class="tunnel-info">
-                                <h3 class="tunnel-title">Nostalgie PS2</h3>
-                                <span class="tunnel-meta">Hard surface 3D</span>
-                            </div>
-                        </a>
-                    </div>
+                <!-- Projects Grid -->
+                <div class="projects-grid" id="projects-grid">
+                    <!-- Projects will be injected by JavaScript -->
                 </div>
             </div>
         </section>
@@ -293,7 +148,7 @@
             <div class="footer-cta" data-reveal="3d-up">
                 <p class="cta-subtitle">Un projet en tête ? ✿</p>
                 <a href="mailto:lecalvezlucas222@gmail.com" class="cta-massive-link">
-                    <h2 class="footer-huge" data-hover="DISCUTONS ➔">DISCUTONS.</h2>
+                    <h2 class="footer-huge" data-hover="DISCUTONS ➔">DISCUTONS</h2>
                 </a>
                 
                 <div class="cta-buttons" data-reveal="3d-up" data-delay="1">

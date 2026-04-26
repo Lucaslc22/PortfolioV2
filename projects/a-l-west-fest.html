@@ -3,12 +3,85 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>À l'West Fest — Lucas Le Calvez</title>
+    <title>Affiche À l'West Fest — Lucas Le Calvez</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/project.css" />
+    <style>
+        /* Specific tweaks for this poster project */
+        .poster-showcase {
+            padding: 100px 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .poster-img-wrap {
+            width: 100%;
+            max-width: 500px; /* Constraining the huge vertical poster */
+            margin: 0 auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.15);
+        }
+
+        .poster-img-wrap img {
+            width: 100%;
+            display: block;
+        }
+
+        .poster-info h2 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--accent-pink);
+            margin-bottom: 20px;
+        }
+
+        .poster-info p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: var(--text-dim);
+            margin-bottom: 40px;
+        }
+
+        .poster-meta {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            border-top: 1px solid var(--border);
+            padding-top: 40px;
+        }
+
+        .pm-item span {
+            display: block;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            color: var(--text-blue);
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .pm-item p {
+            font-size: 1rem;
+            margin: 0;
+            color: var(--text-dim);
+        }
+
+        @media (max-width: 992px) {
+            .poster-showcase {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 50px;
+            }
+            .poster-meta {
+                justify-content: center;
+            }
+        }
+    </style>
 </head>
 <body class="project-page">
 
@@ -17,144 +90,89 @@
             <a class="brand" href="../index.html" aria-label="Retour à l'accueil">
                 <img src="../img/Logo-bonneResolution.png" alt="Lucas Le Calvez" class="header-logo" />
             </a>
-            <a href="../index.html#projets" class="back-link">← Tous les projets</a>
+            <a href="../index.html#projets" class="back-link">Retour aux projets</a>
         </div>
     </header>
 
     <main>
 
-        <section class="project-fullscreen-hero">
-            <div class="pfh-bg" id="pfh-bg">
-                <img src="../img/affiche-ALWestFest.png" alt="À l'West Fest" id="pfh-img" />
-                <div class="pfh-overlay"></div>
+        <!-- 1. HERO REPENSI (Moins de zoom, plus de clarté) -->
+        <section class="project-fullscreen-hero" style="height: 60vh;">
+            <div class="pfh-bg">
+                <!-- Image avec un flou pour l'ambiance sans le côté "gros pixels zoomés" -->
+                <img src="../img/affiche-ALWestFest.png" alt="Affiche À l'West Fest" id="pfh-img" style="filter: blur(15px); transform: scale(1.1); opacity: 0.6;">
+                <div class="pfh-overlay" style="background: linear-gradient(to bottom, rgba(74, 111, 165, 0.4), var(--bg-cream));"></div>
             </div>
             <div class="pfh-content">
-                <span class="pfh-tag">Affiche · Design Graphique</span>
-                <h1 class="pfh-title">À L'WEST<br>FEST</h1>
-                <span class="pfh-scroll-hint">Scroll pour explorer ↓</span>
+                <span class="pfh-tag" style="color: var(--text-blue); opacity: 0.8;">Design Graphique</span>
+                <h1 class="pfh-title" style="color: var(--text-blue); text-shadow: 0 10px 30px rgba(246, 238, 224, 0.5);">À L'WEST<br>FEST</h1>
             </div>
         </section>
 
-        <section class="project-punchline">
+        <!-- SIMPLIFIED UX: SINGLE SHOWCASE -->
+        <section class="poster-section">
             <div class="container">
-                <p class="punchline-text" data-reveal="3d-up">Le rétro comme <em>langage visuel</em>.<br>Pixel par pixel.</p>
-            </div>
-        </section>
+                <div class="poster-showcase">
+                    
+                    <div class="poster-img-wrap" data-reveal="3d-up">
+                        <img src="../img/affiche-ALWestFest.png" alt="Affiche À l'West Fest">
+                    </div>
 
-        <section class="project-specs" data-reveal="3d-up">
-            <div class="container">
-                <div class="specs-band">
-                    <div class="spec-item">
-                        <span class="spec-label">Rôle</span>
-                        <span class="spec-value">Direction Artistique & Design</span>
+                    <div class="poster-info" data-reveal="3d-up" data-delay="1">
+                        <h2>Le Projet</h2>
+                        <p>
+                            Concevoir une affiche pour le festival À l'West Fest de l'IUT de Lannion. 
+                            Le défi était de créer un visuel dynamique et impactant, inspiré de l'univers rétro des jeux vidéo, tout en assurant une lisibilité parfaite des informations du festival.
+                        </p>
+                        
+                        <div class="poster-meta">
+                            <div class="pm-item">
+                                <span>Outils</span>
+                                <p>Affinity Suite</p>
+                            </div>
+                            <div class="pm-item">
+                                <span>Année</span>
+                                <p>2025</p>
+                            </div>
+                            <div class="pm-item">
+                                <span>Format</span>
+                                <p>A3 / Digital</p>
+                            </div>
+                            <div class="pm-item">
+                                <span>Client</span>
+                                <p>IUT Lannion</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="spec-divider">|</div>
-                    <div class="spec-item">
-                        <span class="spec-label">Durée</span>
-                        <span class="spec-value">2 Semaines</span>
-                    </div>
-                    <div class="spec-divider">|</div>
-                    <div class="spec-item">
-                        <span class="spec-label">Outils</span>
-                        <span class="spec-value">Affinity Photo · Affinity Designer</span>
-                    </div>
-                    <div class="spec-divider">|</div>
-                    <div class="spec-item">
-                        <span class="spec-label">Année</span>
-                        <span class="spec-value">2025</span>
-                    </div>
+
                 </div>
             </div>
         </section>
 
-        <section class="project-chapter">
-            <div class="container">
-                <div class="chapter-intro" data-reveal="3d-up">
-                    <span class="chapter-number">01</span>
-                    <h2 class="chapter-title">Le Brief</h2>
-                    <p class="chapter-text">Concevoir une affiche pour le festival À l'West Fest de l'IUT de Lannion — un visuel dynamique inspiré de l'univers rétro des jeux vidéo, notamment de <em>Super Mario</em>.</p>
+        <!-- 6. DUAL PROJECT NAVIGATION (PREV / NEXT) -->
+        <section class="dual-project-nav">
+            <!-- Précédent -->
+            <a href="court-metrage.html" class="dual-nav-item">
+                <div class="dni-bg">
+                    <img src="../img/Court-metrage.png" alt="Court Metrage" />
                 </div>
-            </div>
-            <div class="chapter-image chapter-image--full" data-reveal="3d-up">
-                <img src="../img/affiche-ALWestFest.png" alt="Le Brief" />
-                <span class="chapter-image-caption">Affiche finale · Festival À l'West Fest</span>
-            </div>
-        </section>
-
-        <section class="project-chapter project-chapter--reversed">
-            <div class="container">
-                <div class="chapter-intro" data-reveal="3d-up">
-                    <span class="chapter-number">02</span>
-                    <h2 class="chapter-title">L'Approche</h2>
-                    <p class="chapter-text">Le projet repose sur l'esthétique du <em>pixel-art</em> pour une identité visuelle nostalgique et immédiatement identifiable. Une attention portée à la composition, la typographie et la hiérarchie visuelle pour une lecture claire.</p>
+                <div class="dni-content">
+                    <span class="dni-label">← Précédent</span>
+                    <h2 class="dni-title">Court Metrage</h2>
                 </div>
-            </div>
-            <div class="chapter-image chapter-image--full" data-reveal="3d-up">
-                <img src="../img/affiche-ALWestFest.png" alt="L'Approche" />
-                <span class="chapter-image-caption">Détail pixel-art · Affinity Designer</span>
-            </div>
-        </section>
-
-        <section class="project-chapter">
-            <div class="container">
-                <div class="chapter-intro" data-reveal="3d-up">
-                    <span class="chapter-number">03</span>
-                    <h2 class="chapter-title">Le Résultat</h2>
-                    <p class="chapter-text">Une affiche qui mêle culture gaming rétro et communication événementielle, renforçant les compétences en <em>design graphique</em> et création d'affiches pixel-art en contexte professionnel.</p>
-                </div>
-            </div>
-            <div class="chapter-image chapter-image--full" data-reveal="3d-up">
-                <img src="../img/affiche-ALWestFest.png" alt="Le Résultat" />
-                <span class="chapter-image-caption">Affiche Finale · Prête pour impression</span>
-            </div>
-        </section>
-
-        <section class="project-stats" data-reveal="3d-up">
-            <div class="container">
-                <div class="stats-grid">
-                    <div class="stat-block">
-                        <span class="stat-value" data-count="2" data-suffix=" sem.">2 sem.</span>
-                        <span class="stat-label">De création</span>
-                    </div>
-                    <div class="stat-block">
-                        <span class="stat-value" data-count="1" data-suffix=" festival">1 festival</span>
-                        <span class="stat-label">À promouvoir</span>
-                    </div>
-                    <div class="stat-block">
-                        <span class="stat-value" data-count="2" data-suffix=" softs">2 softs</span>
-                        <span class="stat-label">Affinity</span>
-                    </div>
-                    <div class="stat-block">
-                        <span class="stat-value" data-count="100" data-suffix="%">100%</span>
-                        <span class="stat-label">Pixel-art</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- NEXT PROJECT VISUAL (Plein écran) -->
-        <section class="next-project-visual">
-            <div class="npv-bg">
-                <img src="../img/citrouille.png" alt="Pumpkin 3D" />
-                <div class="npv-overlay"></div>
-            </div>
-            <div class="npv-content">
-                <span class="npv-label">Prochain Projet</span>
-                <a href="pumpkin-3d.html" class="npv-title">Pumpkin 3D <span class="npv-arrow">→</span></a>
-            </div>
-        </section>
-
-        <!-- PREV / NEXT PAGINATION BAR -->
-        <nav class="project-pagination">
-            <a href="court-metrage.html" class="pagination-prev">
-                <span class="pagination-dir">← Précédent</span>
-                <span class="pagination-name">Court-Métrage</span>
             </a>
-            <a href="pumpkin-3d.html" class="pagination-next">
-                <span class="pagination-dir">Suivant →</span>
-                <span class="pagination-name">Pumpkin 3D</span>
+
+            <!-- Suivant -->
+            <a href="interview-coeur-de-ville.html" class="dual-nav-item">
+                <div class="dni-bg">
+                    <img src="../img/miniature-ITW.png" alt="Interview Lannion Coeur de Ville" />
+                </div>
+                <div class="dni-content">
+                    <span class="dni-label">Suivant →</span>
+                    <h2 class="dni-title">Interview Lannion</h2>
+                </div>
             </a>
-        </nav>
+        </section>
 
     </main>
 
