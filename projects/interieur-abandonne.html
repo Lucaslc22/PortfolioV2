@@ -1,15 +1,37 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Intérieur Abandonné — Lucas Le Calvez</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/project.css" />
+    <style>
+        /* Ajustements spécifiques pour ce projet afin d'éviter que les images soient rognées (zoomées) */
+        .chapter-image--full img {
+            width: 100% !important;
+            height: auto !important;
+            max-height: none !important;
+            object-fit: cover !important;
+            display: block;
+        }
+        
+        /* Pour le plein écran (hero), on réduit l'effet de zoom du cover */
+        .pfh-bg img {
+            height: 100% !important; /* Retire le 120% du parallax */
+            object-position: center center;
+            /* Si tu préfères voir l'image entière avec des bords noirs, décommente les deux lignes ci-dessous : */
+            /* object-fit: contain !important; */
+            /* background-color: #000; */
+        }
+    </style>
 </head>
+
 <body class="project-page">
 
     <header class="project-nav" id="project-nav">
@@ -37,7 +59,8 @@
 
         <section class="project-punchline">
             <div class="container">
-                <p class="punchline-text" data-reveal="3d-up">Quand la nature <em>reprend ses droits</em>.<br>Un lieu. Une histoire silencieuse.</p>
+                <p class="punchline-text" data-reveal="3d-up">Quand la nature <em>reprend ses droits</em>.<br>Un lieu.
+                    Une histoire silencieuse.</p>
             </div>
         </section>
 
@@ -51,7 +74,7 @@
                     <div class="spec-divider">|</div>
                     <div class="spec-item">
                         <span class="spec-label">Durée</span>
-                        <span class="spec-value">3 Semaines</span>
+                        <span class="spec-value">2 Semaines</span>
                     </div>
                     <div class="spec-divider">|</div>
                     <div class="spec-item">
@@ -72,7 +95,9 @@
                 <div class="chapter-intro" data-reveal="3d-up">
                     <span class="chapter-number">01</span>
                     <h2 class="chapter-title">Le Concept</h2>
-                    <p class="chapter-text">Un intérieur abandonné progressivement repris par la nature. Des objets — un tonneau, une guitare — apportent une dimension narrative en suggérant une présence passée. La végétation organique crée un sentiment de temps suspendu.</p>
+                    <p class="chapter-text">Un intérieur abandonné progressivement repris par la nature. Des objets — un
+                        tonneau, une guitare — apportent une dimension narrative en suggérant une présence passée. La
+                        végétation organique crée un sentiment de temps suspendu.</p>
                 </div>
             </div>
             <div class="chapter-image chapter-image--full" data-reveal="3d-up">
@@ -86,11 +111,13 @@
                 <div class="chapter-intro" data-reveal="3d-up">
                     <span class="chapter-number">02</span>
                     <h2 class="chapter-title">L'Approche Technique</h2>
-                    <p class="chapter-text">Le travail s'est concentré sur l'éclairage naturel entrant par les fenêtres brisées, les textures usées des murs et du sol, ainsi que la végétation à l'aide de <em>systèmes de particules</em>. Le cadrage guide le regard vers les zones éclairées.</p>
+                    <p class="chapter-text">Le travail s'est concentré sur l'éclairage naturel entrant par les fenêtres
+                        brisées, les textures usées des murs et du sol, ainsi que la végétation à l'aide de <em>systèmes
+                            de particules</em>. Le cadrage guide le regard vers les zones éclairées.</p>
                 </div>
             </div>
             <div class="chapter-image chapter-image--full" data-reveal="3d-up">
-                <img src="../img/int-VF.png" alt="L'Approche Technique" />
+                <img src="../img/int-VF-Viewport.png" alt="L'Approche Technique" />
                 <span class="chapter-image-caption">Détail particules · Végétation organique</span>
             </div>
         </section>
@@ -100,7 +127,8 @@
                 <div class="chapter-intro" data-reveal="3d-up">
                     <span class="chapter-number">03</span>
                     <h2 class="chapter-title">Le Résultat</h2>
-                    <p class="chapter-text">Un rendu présenté de manière éditoriale. Ce projet a permis de développer des compétences avancées en <em>shading</em>, éclairage et composition naturaliste.</p>
+                    <p class="chapter-text">Un rendu présenté de manière éditoriale. Ce projet a permis de développer
+                        des compétences avancées en <em>shading</em>, éclairage et composition naturaliste.</p>
                 </div>
             </div>
             <div class="chapter-image chapter-image--full" data-reveal="3d-up">
@@ -113,7 +141,7 @@
             <div class="container">
                 <div class="stats-grid">
                     <div class="stat-block">
-                        <span class="stat-value" data-count="3" data-suffix=" sem.">3 sem.</span>
+                        <span class="stat-value" data-count="2" data-suffix=" sem.">2 sem.</span>
                         <span class="stat-label">De travail</span>
                     </div>
                     <div class="stat-block">
@@ -125,8 +153,8 @@
                         <span class="stat-label">Qui raconte</span>
                     </div>
                     <div class="stat-block">
-                        <span class="stat-value" data-count="100" data-suffix="%">100%</span>
-                        <span class="stat-label">Particules organique</span>
+                        <span class="stat-value" data-count="0" data-suffix="">0</span>
+                        <span class="stat-label">Présence humaine</span>
                     </div>
                 </div>
             </div>
@@ -162,4 +190,5 @@
     <script src="../js/script.js"></script>
     <script src="../js/project.js"></script>
 </body>
+
 </html>

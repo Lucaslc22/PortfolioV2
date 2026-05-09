@@ -84,7 +84,8 @@
     will-change: transform;
 }
 
-.pfh-bg img {
+.pfh-bg img,
+.pfh-bg video {
     width: 100%;
     height: 120%; /* Plus grand que le conteneur pour le parallax */
     object-fit: cover;

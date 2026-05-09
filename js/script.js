@@ -3,11 +3,10 @@ document.addEventListener("DOMContentLoaded", () => {
     
     // 1. Data System for Projects (EXACT V1 Titles and Categories)
     const PROJECTS = [
-        { title: "Ocean Arctique", slug: "ocean-arctique", cat: ["3d"], img: "img/glacierVF.jpg" },
-        { title: "Intérieur abandonne", slug: "interieur-abandonne", cat: ["3d"], img: "img/int-VF.png" },
-        { title: "Océan en 3D", slug: "profondeurs", cat: ["3d"], img: "img/ocean.png" },
-        { title: "Ile tropicale", slug: "ile-flottante", cat: ["3d"], img: "img/îleVF.png" },
         { title: "Paysage naturel", slug: "paysage-cotier", cat: ["3d"], img: "img/0116.png", award: "Meilleure Animation — À l'West Fest (IUT Lannion)" },
+        { title: "Ocean Arctique", slug: "ocean-arctique", cat: ["3d"], img: "img/glacierVFV2.png" },
+        { title: "Intérieur abandonne", slug: "interieur-abandonne", cat: ["3d"], img: "img/int-VF.png" },
+        { title: "Ile tropicale", slug: "ile-flottante", cat: ["3d"], img: "img/îleVF.png" },
         { title: "Court Metrage", slug: "court-metrage", cat: ["montage"], img: "img/Court-metrage.png" },
         { title: "Affiche À l'West Fest", slug: "a-l-west-fest", cat: ["affiche"], img: "img/affiche-ALWestFest.png" },
         { title: "Interview Lannion Coeur de Ville", slug: "interview-coeur-de-ville", cat: ["montage"], img: "img/miniature-ITW.png" },

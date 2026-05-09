@@ -1,15 +1,37 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Océan Arctique — Lucas Le Calvez</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/project.css" />
+    <style>
+        /* Ajustements spécifiques pour ce projet afin d'éviter que les images soient rognées (zoomées) */
+        .chapter-image--full img {
+            width: 100% !important;
+            height: auto !important;
+            max-height: none !important;
+            object-fit: cover !important;
+            display: block;
+        }
+        
+        /* Pour le plein écran (hero), on réduit l'effet de zoom du cover */
+        .pfh-bg img {
+            height: 100% !important; /* Retire le 120% du parallax */
+            object-position: center center;
+            /* Si tu préfères voir l'image entière avec des bords noirs, décommente les deux lignes ci-dessous : */
+            /* object-fit: contain !important; */
+            /* background-color: #000; */
+        }
+    </style>
 </head>
+
 <body class="project-page">
 
     <header class="project-nav" id="project-nav">
@@ -25,7 +47,7 @@
 
         <section class="project-fullscreen-hero">
             <div class="pfh-bg" id="pfh-bg">
-                <img src="../img/glacierVF.jpg" alt="Océan Arctique" id="pfh-img" />
+                <img src="../img/glacierVFV2.png" alt="Océan Arctique" id="pfh-img" />
                 <div class="pfh-overlay"></div>
             </div>
             <div class="pfh-content">
@@ -37,7 +59,8 @@
 
         <section class="project-punchline">
             <div class="container">
-                <p class="punchline-text" data-reveal="3d-up">Recréer le <em>silence</em> glaciaire.<br>Avec du code et des pixels.</p>
+                <p class="punchline-text" data-reveal="3d-up">Recréer le <em>silence</em> glaciaire.<br>Avec des pixels.
+                </p>
             </div>
         </section>
 
@@ -51,12 +74,12 @@
                     <div class="spec-divider">|</div>
                     <div class="spec-item">
                         <span class="spec-label">Durée</span>
-                        <span class="spec-value">3 Semaines</span>
+                        <span class="spec-value">3 jours</span>
                     </div>
                     <div class="spec-divider">|</div>
                     <div class="spec-item">
                         <span class="spec-label">Outils</span>
-                        <span class="spec-value">Blender · Lightroom</span>
+                        <span class="spec-value">Blender </span>
                     </div>
                     <div class="spec-divider">|</div>
                     <div class="spec-item">
@@ -72,11 +95,14 @@
                 <div class="chapter-intro" data-reveal="3d-up">
                     <span class="chapter-number">01</span>
                     <h2 class="chapter-title">Le Concept</h2>
-                    <p class="chapter-text">Un navire progressant au cœur d'un paysage glacé. Des blocs de glace sculptés, un ciel étoilé aux tons colorés, une ambiance froide et mystérieuse. Reproduire un paysage arctique crédible, c'est se confronter à la complexité de la lumière polaire et du shader de l'eau.</p>
+                    <p class="chapter-text">Un navire progressant au cœur d'un paysage glacé. Des blocs de glace
+                        sculptés, une ambiance froide et mystérieuse. Reproduire un
+                        paysage arctique crédible, c'est se confronter à la complexité de la lumière polaire et du
+                        shader de l'eau.</p>
                 </div>
             </div>
             <div class="chapter-image chapter-image--full" data-reveal="3d-up">
-                <img src="../img/glacierVF.jpg" alt="Le Concept" />
+                <img src="../img/glacierVFV2.png" alt="Le Concept" />
                 <span class="chapter-image-caption">Vue d'ensemble · Rendu final Cycles</span>
             </div>
         </section>
@@ -86,11 +112,13 @@
                 <div class="chapter-intro" data-reveal="3d-up">
                     <span class="chapter-number">02</span>
                     <h2 class="chapter-title">L'Approche Technique</h2>
-                    <p class="chapter-text">Le projet m'a permis de travailler la modélisation et la sculpture des blocs de glace, ainsi que le shader de l'eau pour obtenir des reflets précis et des ondulations réalistes. Une attention particulière a été portée à l'éclairage et à l'ambiance générale, renforcée par un ciel étoilé.</p>
+                    <p class="chapter-text">Le projet m'a permis de travailler la modélisation et la sculpture des blocs
+                        de glace, ainsi que le shader de l'eau pour obtenir des reflets précis et des ondulations
+                        réalistes. Une attention particulière a été portée à l'éclairage et à l'ambiance générale.</p>
                 </div>
             </div>
             <div class="chapter-image chapter-image--full" data-reveal="3d-up">
-                <img src="../img/glacierVF.jpg" alt="L'Approche Technique" />
+                <img src="../img/glacierVFV2-Viewport.png" alt="L'Approche Technique" />
                 <span class="chapter-image-caption">Détail matériaux · Shader glace & eau</span>
             </div>
         </section>
@@ -100,12 +128,14 @@
                 <div class="chapter-intro" data-reveal="3d-up">
                     <span class="chapter-number">03</span>
                     <h2 class="chapter-title">Le Résultat</h2>
-                    <p class="chapter-text">La post-production réalisée sur <em>Lightroom</em> accentue la profondeur et le relief. Ce projet combine modélisation, shaders, éclairage et retouches colorimétriques pour un rendu immersif et cohérent.</p>
+                    <p class="chapter-text">L'accent sur le shading des icebergs et l'éclairage accentue la profondeur et
+                        le relief. Ce projet combine modélisation, shaders et éclairage pour
+                        un rendu immersif et cohérent.</p>
                 </div>
             </div>
             <div class="chapter-image chapter-image--full" data-reveal="3d-up">
-                <img src="../img/glacierVF.jpg" alt="Le Résultat" />
-                <span class="chapter-image-caption">Rendu Final · 4K · Cycles 2048 samples</span>
+                <img src="../img/glacierVFV2.png" alt="Le Résultat" />
+                <span class="chapter-image-caption">Rendu Final ·</span>
             </div>
         </section>
 
@@ -113,20 +143,20 @@
             <div class="container">
                 <div class="stats-grid">
                     <div class="stat-block">
-                        <span class="stat-value" data-count="3" data-suffix=" sem.">3 sem.</span>
+                        <span class="stat-value" data-count="3" data-suffix=" jours">3 jours.</span>
                         <span class="stat-label">De travail</span>
                     </div>
                     <div class="stat-block">
-                        <span class="stat-value" data-count="4" data-suffix="h">4h</span>
+                        <span class="stat-value" data-count="30" data-suffix="min">30min</span>
                         <span class="stat-label">Rendu Cycles</span>
                     </div>
                     <div class="stat-block">
                         <span class="stat-value" data-count="1" data-suffix=" HDRI">1 HDRI</span>
-                        <span class="stat-label">Ciel étoilé</span>
+                        <span class="stat-label">ciel brumeux </span>
                     </div>
                     <div class="stat-block">
-                        <span class="stat-value" data-count="2" data-suffix=" softs">2 softs</span>
-                        <span class="stat-label">Blender & Lightroom</span>
+                        <span class="stat-value" data-count="1" data-suffix=" softs">1 soft</span>
+                        <span class="stat-label">Blender </span>
                     </div>
                 </div>
             </div>
@@ -162,4 +192,5 @@
     <script src="../js/script.js"></script>
     <script src="../js/project.js"></script>
 </body>
+
 </html>
