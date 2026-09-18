@@ -1,15 +1,39 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Île Flottante — Lucas Le Calvez</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/project.css" />
+    <style>
+        /* Ajustements pour afficher les médias sans rognage (zoom) */
+        .chapter-image--full img,
+        .chapter-video video {
+            width: 100% !important;
+            height: auto !important;
+            max-height: none !important;
+            object-fit: contain !important;
+            aspect-ratio: auto !important;
+            display: block;
+        }
+        
+        /* Pour le plein écran (hero) */
+        .pfh-bg img,
+        .pfh-bg video {
+            height: 100% !important; /* Retire le 120% du parallax */
+            object-position: center center;
+            object-fit: contain !important; /* Affiche toute l'image/vidéo sans rognage */
+            background-color: #000;
+        }
+    </style>
 </head>
+
 <body class="project-page">
 
     <header class="project-nav" id="project-nav">
@@ -25,19 +49,20 @@
 
         <section class="project-fullscreen-hero">
             <div class="pfh-bg" id="pfh-bg">
-                <img src="../img/îleVF.png" alt="Île Flottante" id="pfh-img" />
+                <video src="../videos/ileVF.mp4" id="pfh-img" autoplay loop muted playsinline></video>
                 <div class="pfh-overlay"></div>
             </div>
             <div class="pfh-content">
                 <span class="pfh-tag">Concept Art · Animation Low-Poly</span>
-                <h1 class="pfh-title">ÎLE<br>FLOTTANTE</h1>
+                <h1 class="pfh-title">ÎLE<br>DESERTE</h1>
                 <span class="pfh-scroll-hint">Scroll pour explorer ↓</span>
             </div>
         </section>
 
         <section class="project-punchline">
             <div class="container">
-                <p class="punchline-text" data-reveal="3d-up">Low-poly, <em>haut niveau</em>.<br>La stylisation comme langage.</p>
+                <p class="punchline-text" data-reveal="3d-up">Low-poly <em>Stylisé</em>.<br>La simplicité comme langage.
+                </p>
             </div>
         </section>
 
@@ -46,12 +71,12 @@
                 <div class="specs-band">
                     <div class="spec-item">
                         <span class="spec-label">Rôle</span>
-                        <span class="spec-value">Modélisation · Animation · Lighting</span>
+                        <span class="spec-value">Modélisation · Lighting</span>
                     </div>
                     <div class="spec-divider">|</div>
                     <div class="spec-item">
                         <span class="spec-label">Durée</span>
-                        <span class="spec-value">2 Semaines</span>
+                        <span class="spec-value">3 Jours</span>
                     </div>
                     <div class="spec-divider">|</div>
                     <div class="spec-item">
@@ -72,7 +97,9 @@
                 <div class="chapter-intro" data-reveal="3d-up">
                     <span class="chapter-number">01</span>
                     <h2 class="chapter-title">Le Concept</h2>
-                    <p class="chapter-text">Une île tropicale stylisée en low-poly animée — végétation, eau, nuages. Chaque élément naturel coexiste dans une esthétique intentionnellement simplifiée mais expressive.</p>
+                    <p class="chapter-text">Une île tropicale stylisée en low-poly animée, avec végétation, eau, nuages.
+                        Chaque élément naturel coexiste dans une esthétique intentionnellement simplifiée mais
+                        expressive.</p>
                 </div>
             </div>
             <div class="chapter-image chapter-image--full" data-reveal="3d-up">
@@ -86,11 +113,13 @@
                 <div class="chapter-intro" data-reveal="3d-up">
                     <span class="chapter-number">02</span>
                     <h2 class="chapter-title">L'Approche Technique</h2>
-                    <p class="chapter-text">Les matériaux et l'éclairage ont été travaillés pour maintenir une esthétique cohérente. La caméra effectue un mouvement contemplatif qui révèle progressivement l'île — une mise en scène <em>minimaliste mais efficace</em>.</p>
+                    <p class="chapter-text">Les matériaux et l'éclairage ont été travaillés pour maintenir une
+                        esthétique cohérente. La caméra effectue un mouvement contemplatif qui révèle progressivement
+                        l'île, mise en scène <em>minimaliste mais efficace</em>.</p>
                 </div>
             </div>
             <div class="chapter-image chapter-image--full" data-reveal="3d-up">
-                <img src="../img/îleVF.png" alt="L'Approche Technique" />
+                <img src="../img/ileViewport.png" alt="L'Approche Technique" />
                 <span class="chapter-image-caption">Animation caméra · Mouvement contemplatif</span>
             </div>
         </section>
@@ -100,11 +129,12 @@
                 <div class="chapter-intro" data-reveal="3d-up">
                     <span class="chapter-number">03</span>
                     <h2 class="chapter-title">Le Résultat</h2>
-                    <p class="chapter-text">Une animation qui prouve qu'un style graphique simple peut être riche en émotion — exploration de l'animation de caméra et de la <em>composition stylisée</em>.</p>
+                    <p class="chapter-text">Une animation qui prouve qu'un style graphique simple peut être riche en
+                        émotion — exploration de l'animation de caméra et de la <em>composition stylisée</em>.</p>
                 </div>
             </div>
-            <div class="chapter-image chapter-image--full" data-reveal="3d-up">
-                <img src="../img/îleVF.png" alt="Le Résultat" />
+            <div class="chapter-video" data-reveal="3d-up">
+                <video src="../videos/ileVF.mp4" autoplay loop muted playsinline></video>
                 <span class="chapter-image-caption">Animation Finale · Rendu complet</span>
             </div>
         </section>
@@ -113,16 +143,16 @@
             <div class="container">
                 <div class="stats-grid">
                     <div class="stat-block">
-                        <span class="stat-value" data-count="2" data-suffix=" sem.">2 sem.</span>
+                        <span class="stat-value" data-count="3" data-suffix=" jours">3 jours.</span>
                         <span class="stat-label">De travail</span>
                     </div>
                     <div class="stat-block">
-                        <span class="stat-value" data-count="5" data-suffix=" éléments">5 éléments</span>
-                        <span class="stat-label">Naturels</span>
+                        <span class="stat-value" data-count="100" data-suffix="%">100%</span>
+                        <span class="stat-label">Fait main</span>
                     </div>
                     <div class="stat-block">
                         <span class="stat-value" data-count="1" data-suffix=" île">1 île</span>
-                        <span class="stat-label">Qui flotte</span>
+                        <span class="stat-label">Déserte</span>
                     </div>
                     <div class="stat-block">
                         <span class="stat-value" data-count="100" data-suffix="%">100%</span>
@@ -135,13 +165,13 @@
         <!-- 6. DUAL PROJECT NAVIGATION (PREV / NEXT) -->
         <section class="dual-project-nav">
             <!-- Précédent -->
-            <a href="profondeurs.html" class="dual-nav-item">
+            <a href="interieur-abandonne.html" class="dual-nav-item">
                 <div class="dni-bg">
-                    <img src="../img/ocean.png" alt="Océan en 3D" />
+                    <img src="../img/int-VF.png" alt="Intérieur abandonné" />
                 </div>
                 <div class="dni-content">
                     <span class="dni-label">← Précédent</span>
-                    <h2 class="dni-title">Océan en 3D</h2>
+                    <h2 class="dni-title">Intérieur abandonné</h2>
                 </div>
             </a>
 
@@ -162,4 +192,5 @@
     <script src="../js/script.js"></script>
     <script src="../js/project.js"></script>
 </body>
+
 </html>
