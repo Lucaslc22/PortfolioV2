@@ -1,84 +1,112 @@
-// project.js — Immersive Project Page Scripts
+// project.js — Immersive Project Page Scripts (Lucas Le Calvez)
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     // =========================================
-    // NAV — Becomes opaque on scroll
+    // 1. NAV — Becomes opaque on scroll
     // =========================================
     const projectNav = document.getElementById('project-nav');
     if (projectNav) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
+        const handleNavScroll = () => {
+            if (window.scrollY > 40) {
                 projectNav.classList.add('is-scrolled');
             } else {
                 projectNav.classList.remove('is-scrolled');
             }
-        }, { passive: true });
+        };
+        window.addEventListener('scroll', handleNavScroll, { passive: true });
+        handleNavScroll();
     }
 
     // =========================================
-    // PARALLAX — Hero Image
+    // 2. PARALLAX — Hero Media
     // =========================================
-    const pfhBgImg = document.getElementById('pfh-img');
-    if (pfhBgImg) {
+    const pfhBgMedia = document.getElementById('pfh-img');
+    if (pfhBgMedia && !prefersReducedMotion) {
+        let ticking = false;
         window.addEventListener('scroll', () => {
-            const scrollY = window.scrollY;
-            const heroHeight = window.innerHeight;
-            if (scrollY < heroHeight) {
-                // Image moves at 50% of scroll speed = parallax depth
-                const offset = scrollY * 0.45;
-                pfhBgImg.style.transform = `translateY(${offset}px)`;
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    const scrollY = window.scrollY;
+                    const heroHeight = window.innerHeight;
+                    if (scrollY < heroHeight) {
+                        const offset = scrollY * 0.35;
+                        pfhBgMedia.style.transform = `translate3d(0, ${offset}px, 0)`;
+                    }
+                    ticking = false;
+                });
+                ticking = true;
             }
         }, { passive: true });
     }
 
     // =========================================
-    // COUNT-UP — Animated Stats
+    // 3. COUNT-UP — Animated Stats with Smooth Easing
     // =========================================
     const statValues = document.querySelectorAll('.stat-value[data-count]');
 
     if (statValues.length > 0) {
-        const countObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const el = entry.target;
-                    const target = parseInt(el.dataset.count, 10);
-                    const suffix = el.dataset.suffix || '';
-                    let current = 0;
-                    const duration = 1200; // ms
-                    const steps = 40;
-                    const increment = target / steps;
-                    const stepTime = duration / steps;
+        if ('IntersectionObserver' in window && !prefersReducedMotion) {
+            const countObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const el = entry.target;
+                        const target = parseFloat(el.dataset.count);
+                        const suffix = el.dataset.suffix || '';
+                        const duration = 1400; // ms
+                        const startTime = performance.now();
 
-                    const timer = setInterval(() => {
-                        current += increment;
-                        if (current >= target) {
-                            current = target;
-                            clearInterval(timer);
-                        }
-                        el.textContent = Math.round(current) + suffix;
-                    }, stepTime);
+                        const easeOutQuart = (x) => 1 - Math.pow(1 - x, 4);
 
-                    countObserver.unobserve(el);
-                }
+                        const updateCounter = (currentTime) => {
+                            const elapsed = currentTime - startTime;
+                            const progress = Math.min(elapsed / duration, 1);
+                            const easedProgress = easeOutQuart(progress);
+                            const currentVal = Math.round(easedProgress * target);
+
+                            el.textContent = currentVal + suffix;
+
+                            if (progress < 1) {
+                                requestAnimationFrame(updateCounter);
+                            } else {
+                                el.textContent = target + suffix;
+                            }
+                        };
+
+                        requestAnimationFrame(updateCounter);
+                        countObserver.unobserve(el);
+                    }
+                });
+            }, { threshold: 0.3 });
+
+            statValues.forEach(el => countObserver.observe(el));
+        } else {
+            // Fallback: display targets directly
+            statValues.forEach(el => {
+                el.textContent = (el.dataset.count || '') + (el.dataset.suffix || '');
             });
-        }, { threshold: 0.5 });
-
-        statValues.forEach(el => countObserver.observe(el));
+        }
     }
 
     // =========================================
-    // DATA-REVEAL — Re-use same system as main
+    // 4. DATA-REVEAL — Scroll Observer
     // =========================================
     const revealElements = document.querySelectorAll('[data-reveal]');
-    const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                revealObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.08 });
-    revealElements.forEach(el => revealObserver.observe(el));
+    if ('IntersectionObserver' in window && !prefersReducedMotion) {
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+    } else {
+        revealElements.forEach(el => el.classList.add('is-visible'));
+    }
 
 });

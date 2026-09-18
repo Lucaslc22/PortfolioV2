@@ -17,12 +17,16 @@
 
 <body>
     <!-- HEADER -->
-    <header class="site-header" data-reveal="3d-up">
+    <header class="site-header" id="site-header" data-reveal="3d-up">
         <div class="container nav">
             <a class="brand" href="#top" aria-label="Retour en haut">
                 <img src="img/Logo-bonneResolution.png" alt="Lucas Le Calvez" class="header-logo" />
             </a>
-            <nav class="nav-links">
+            <button class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
+            <nav class="nav-links" id="nav-links">
                 <a href="#projets">Projets</a>
                 <a href="#apropos">À propos</a>
                 <a href="#contact">Contact</a>
@@ -121,11 +125,11 @@
             <!-- Full-width SKILLS MARQUEE -->
             <div class="skills-curve-wrapper" data-reveal="3d-up" data-delay="2">
                 <div class="curve-track">
-                    <svg width="2400" height="150" viewBox="0 0 2400 150">
+                    <svg width="2400" height="110" viewBox="0 0 2400 110">
                         <path id="wave1"
-                            d="M 0 75 Q 150 0 300 75 T 600 75 T 900 75 T 1200 75 T 1500 75 T 1800 75 T 2100 75 T 2400 75"
+                            d="M 0 55 Q 150 15 300 55 T 600 55 T 900 55 T 1200 55 T 1500 55 T 1800 55 T 2100 55 T 2400 55"
                             fill="none" />
-                        <text font-family="'Outfit', sans-serif" font-size="36px" font-weight="600"
+                        <text font-family="'Outfit', sans-serif" font-size="30px" font-weight="600"
                             fill="var(--text-blue)" text-transform="uppercase">
                             <textPath href="#wave1" startOffset="0" textLength="2300" lengthAdjust="spacing">
                                 BLENDER <tspan fill="var(--accent-pink)">✿</tspan> PREMIERE PRO <tspan
@@ -140,11 +144,11 @@
                         </text>
                     </svg>
                     <!-- Second identical SVG for seamless looping -->
-                    <svg width="2400" height="150" viewBox="0 0 2400 150">
+                    <svg width="2400" height="110" viewBox="0 0 2400 110">
                         <path id="wave2"
-                            d="M 0 75 Q 150 0 300 75 T 600 75 T 900 75 T 1200 75 T 1500 75 T 1800 75 T 2100 75 T 2400 75"
+                            d="M 0 55 Q 150 15 300 55 T 600 55 T 900 55 T 1200 55 T 1500 55 T 1800 55 T 2100 55 T 2400 55"
                             fill="none" />
-                        <text font-family="'Outfit', sans-serif" font-size="36px" font-weight="600"
+                        <text font-family="'Outfit', sans-serif" font-size="30px" font-weight="600"
                             fill="var(--text-blue)" text-transform="uppercase">
                             <textPath href="#wave2" startOffset="0" textLength="2300" lengthAdjust="spacing">
                                 BLENDER <tspan fill="var(--accent-pink)">✿</tspan> PREMIERE PRO <tspan

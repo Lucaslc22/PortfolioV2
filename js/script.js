@@ -1,7 +1,7 @@
-// script.js
+// script.js — Portfolio Lucas Le Calvez
 document.addEventListener("DOMContentLoaded", () => {
     
-    // 1. Data System for Projects (EXACT V1 Titles and Categories)
+    // 1. Data System for Projects (EXACT Titles, Slugs, Categories & Awards Preserved)
     const PROJECTS = [
         { title: "Paysage naturel", slug: "paysage-cotier", cat: ["3d"], img: "img/0116.png", award: "Meilleure Animation — À l'West Fest (IUT Lannion)" },
         { title: "Ocean Arctique", slug: "ocean-arctique", cat: ["3d"], img: "img/glacierVFV2.png" },
@@ -19,10 +19,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const grid = document.getElementById('projects-grid');
     const filterBtns = document.querySelectorAll('.filter-btn');
 
+    // Render Grid with smooth staggered fade
     function renderGrid(filter = 'all') {
         if (!grid) return;
         
         grid.style.opacity = '0';
+        grid.style.transform = 'translateY(8px)';
         
         setTimeout(() => {
             grid.innerHTML = '';
@@ -35,9 +37,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 const card = document.createElement('a');
                 card.href = `projects/${p.slug}.html`;
                 card.className = 'project-card';
-                card.style.transitionDelay = `${index * 0.05}s`;
+                // Stagger cap at 8 cards (0.04s * index, max 0.32s)
+                card.style.transitionDelay = `${Math.min(index * 0.045, 0.36)}s`;
                 
-                // Determine display category text
+                // Determine category label
                 const categoryText = p.cat.map(c => {
                     if (c === '3d') return '3D';
                     if (c === 'montage') return 'Montage';
@@ -57,16 +60,21 @@ document.addEventListener("DOMContentLoaded", () => {
                 
                 grid.appendChild(card);
                 
+                // Double RAF ensures browser has painted the initial state before adding .is-visible
                 requestAnimationFrame(() => {
-                    card.classList.add('is-visible');
+                    requestAnimationFrame(() => {
+                        card.classList.add('is-visible');
+                    });
                 });
             });
             
             grid.style.opacity = '1';
-        }, 300);
+            grid.style.transform = 'translateY(0)';
+            grid.style.transition = 'opacity 0.3s ease, transform 0.35s var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1))';
+        }, 200);
     }
 
-    // Filter Click Events
+    // Filter Buttons Interaction
     filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             filterBtns.forEach(b => b.classList.remove('active'));
@@ -75,45 +83,127 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Initial Render
+    // Initial Grid Render
     renderGrid();
 
-    // 2. Standard Intersection Observer for reveal animations
-    const revealElements = document.querySelectorAll('[data-reveal]');
-    const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                revealObserver.unobserve(entry.target);
+    // 2. Header Scroll Glassmorphism
+    const siteHeader = document.getElementById('site-header');
+    if (siteHeader) {
+        const updateHeader = () => {
+            if (window.scrollY > 40) {
+                siteHeader.classList.add('is-scrolled');
+            } else {
+                siteHeader.classList.remove('is-scrolled');
             }
-        });
-    }, { threshold: 0.1 });
-    revealElements.forEach(el => revealObserver.observe(el));
+        };
+        window.addEventListener('scroll', updateHeader, { passive: true });
+        updateHeader();
+    }
 
-    // 3. Hero Parallax / Mouse Move effect
-    const hero = document.getElementById('hero');
-    const collage = document.querySelector('.collage-container');
-    if (hero && collage) {
-        hero.addEventListener('mousemove', (e) => {
-            const x = (e.clientX / window.innerWidth - 0.5) * 20;
-            const y = (e.clientY / window.innerHeight - 0.5) * 20;
-            collage.style.transform = `translate(${x}px, ${y}px)`;
+    // 3. Mobile Navigation Drawer / Toggle
+    const navToggle = document.getElementById('nav-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    if (navToggle && navLinks) {
+        const toggleMenu = (open) => {
+            const isOpen = open !== undefined ? open : !navLinks.classList.contains('is-open');
+            navLinks.classList.toggle('is-open', isOpen);
+            navToggle.setAttribute('aria-expanded', isOpen);
+            navToggle.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Menu');
+            document.body.style.overflow = isOpen ? 'hidden' : '';
+        };
+
+        navToggle.addEventListener('click', () => toggleMenu());
+
+        // Close on link click
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => toggleMenu(false));
+        });
+
+        // Close on Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navLinks.classList.contains('is-open')) {
+                toggleMenu(false);
+            }
         });
     }
 
-    // 4. Smooth Scroll for anchors
+    // 4. Reveal Animations Observer
+    const revealElements = document.querySelectorAll('[data-reveal]');
+    if ('IntersectionObserver' in window) {
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+    } else {
+        revealElements.forEach(el => el.classList.add('is-visible'));
+    }
+
+    // 5. Hero Parallax / Mouse Movement Smoothing
+    const hero = document.getElementById('hero');
+    const collage = document.querySelector('.collage-container');
+    
+    if (hero && collage && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+        let mouseX = 0;
+        let mouseY = 0;
+        let currentX = 0;
+        let currentY = 0;
+        let isMoving = false;
+
+        const lerp = (start, end, factor) => start + (end - start) * factor;
+
+        const animateParallax = () => {
+            currentX = lerp(currentX, mouseX, 0.06);
+            currentY = lerp(currentY, mouseY, 0.06);
+            collage.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;
+
+            if (Math.abs(mouseX - currentX) > 0.05 || Math.abs(mouseY - currentY) > 0.05) {
+                requestAnimationFrame(animateParallax);
+            } else {
+                isMoving = false;
+            }
+        };
+
+        hero.addEventListener('mousemove', (e) => {
+            const rect = hero.getBoundingClientRect();
+            const relX = (e.clientX - rect.left) / rect.width - 0.5;
+            const relY = (e.clientY - rect.top) / rect.height - 0.5;
+            mouseX = relX * 24;
+            mouseY = relY * 24;
+
+            if (!isMoving) {
+                isMoving = true;
+                requestAnimationFrame(animateParallax);
+            }
+        }, { passive: true });
+    }
+
+    // 6. Smooth Scroll for Anchor Links (accounting for sticky header)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
             const targetId = this.getAttribute('href');
+            if (!targetId || targetId === '#') return;
+
+            e.preventDefault();
             if (targetId === '#top') {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
                 return;
             }
+
             const target = document.querySelector(targetId);
             if (target) {
+                const headerOffset = 70;
+                const elementPosition = target.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
                 window.scrollTo({
-                    top: target.offsetTop - 80,
+                    top: offsetPosition,
                     behavior: 'smooth'
                 });
             }
