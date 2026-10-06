@@ -376,11 +376,14 @@
     flex-shrink: 0;
 }
 
-/* Video Embed in Chapters */
+/* Video Embed in Chapters — Contained & Balanced */
 .chapter-video {
     width: 100%;
+    max-width: min(960px, calc(100% - clamp(24px, 5vw, 64px)));
+    margin-left: auto;
+    margin-right: auto;
     position: relative;
-    margin-top: clamp(32px, 5vh, 60px);
+    margin-top: clamp(28px, 4.5vh, 52px);
     border-radius: var(--radius-md);
     overflow: hidden;
     background: #040810;
@@ -392,11 +395,21 @@
 
 .chapter-video video {
     width: 100%;
-    aspect-ratio: 16 / 9;
-    max-height: 80vh;
+    height: auto;
+    max-height: 72vh;
     object-fit: contain;
     display: block;
     margin: 0 auto;
+    background: #000000;
+}
+
+.chapter-video iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    max-height: 72vh;
+    border: 0;
+    display: block;
     background: #000000;
 }
 
@@ -411,6 +424,26 @@
     color: var(--text-dim);
     background: var(--bg-cream-elevated);
     border-top: 1px solid var(--border);
+    font-weight: 600;
+}
+
+.chapter-intro:last-child {
+    margin-bottom: 0;
+}
+
+.chapter-actions {
+    margin-top: clamp(20px, 3vh, 30px);
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.project-btn-external {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
     font-weight: 600;
 }
 

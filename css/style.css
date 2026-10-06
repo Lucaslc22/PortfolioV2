@@ -716,6 +716,8 @@ button {
     padding: 8px 0;
     -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
     mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    pointer-events: none;
+    user-select: none;
 }
 
 .curve-track {
@@ -723,10 +725,7 @@ button {
     width: max-content;
     animation: curveMarquee 28s linear infinite;
     will-change: transform;
-}
-
-.skills-curve-wrapper:hover .curve-track {
-    animation-play-state: paused;
+    pointer-events: none;
 }
 
 @keyframes curveMarquee {

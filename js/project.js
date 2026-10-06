@@ -5,6 +5,52 @@ document.addEventListener('DOMContentLoaded', () => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     // =========================================
+    // 0. AUTOPLAY VIDEOS — Ensure Reliable Playback
+    // =========================================
+    const autoVideos = document.querySelectorAll('video');
+    autoVideos.forEach(v => {
+        if (v.hasAttribute('autoplay')) {
+            v.muted = true;
+            v.defaultMuted = true;
+            v.playsInline = true;
+            v.setAttribute('muted', '');
+            v.setAttribute('playsinline', '');
+            v.setAttribute('webkit-playsinline', '');
+
+            const playPromise = () => {
+                const p = v.play();
+                if (p !== undefined) {
+                    p.catch(() => {
+                        // Will retry on first user interaction
+                    });
+                }
+            };
+
+            if (v.readyState >= 2) {
+                playPromise();
+            } else {
+                v.addEventListener('loadedmetadata', playPromise, { once: true });
+                v.addEventListener('canplay', playPromise, { once: true });
+            }
+        }
+    });
+
+    const triggerUserGesturePlay = () => {
+        autoVideos.forEach(v => {
+            if (v.hasAttribute('autoplay') && v.paused) {
+                v.muted = true;
+                v.play().catch(() => {});
+            }
+        });
+        window.removeEventListener('touchstart', triggerUserGesturePlay);
+        window.removeEventListener('scroll', triggerUserGesturePlay);
+        window.removeEventListener('click', triggerUserGesturePlay);
+    };
+    window.addEventListener('touchstart', triggerUserGesturePlay, { passive: true, once: true });
+    window.addEventListener('scroll', triggerUserGesturePlay, { passive: true, once: true });
+    window.addEventListener('click', triggerUserGesturePlay, { once: true });
+
+    // =========================================
     // 1. NAV — Becomes opaque on scroll
     // =========================================
     const projectNav = document.getElementById('project-nav');
